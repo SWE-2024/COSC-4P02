@@ -35,7 +35,6 @@ The field of software engineering has developed greatly in recent decades, and a
       height="150">
   </a>
 </td>
-</tr>
 <td align="center" valign="top" width="20%">
   <a href="https://github.com/basimahmad1">
     Basim Ahmad<br />
@@ -72,7 +71,6 @@ The field of software engineering has developed greatly in recent decades, and a
       height="150">
   </a>
 </td>
-</tr>
 <td align="center" valign="top" width="20%">
   <a href="https://github.com/gibclay">
     Raj<br />
