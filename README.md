@@ -73,7 +73,7 @@ The field of software engineering has developed greatly in recent decades, and a
 </td>
 <td align="center" valign="top" width="20%">
   <a href="https://github.com/0-20">
-    Raj<br />
+    Rajan Randhawa<br />
     <small>Developer</small><br/>
     <img src="https://avatars.githubusercontent.com/u/105026124?v=4"
       width="150" 
