@@ -55,7 +55,7 @@ The field of software engineering has developed greatly in recent decades, and a
 </tr>
 <td align="center" valign="top" width="20%">
   <a href="https://github.com/Qwest500">
-    Chris<br />
+    Chris Orr<br />
     <small>Developer</small><br/>
     <img src="https://avatars.githubusercontent.com/u/80013568?v=4"
       width="150" 
@@ -63,8 +63,8 @@ The field of software engineering has developed greatly in recent decades, and a
   </a>
 </td>
 <td align="center" valign="top" width="20%">
-  <a href="https://github.com/gibclay">
-    Julian<br />
+  <a href="https://github.com/Julellisg">
+    Julian Ellis Geronimo<br />
     <small>Developer</small><br/>
     <img src="https://avatars.githubusercontent.com/u/105026124?v=4"
       width="150" 
@@ -72,7 +72,7 @@ The field of software engineering has developed greatly in recent decades, and a
   </a>
 </td>
 <td align="center" valign="top" width="20%">
-  <a href="https://github.com/gibclay">
+  <a href="https://github.com/0-20">
     Raj<br />
     <small>Developer</small><br/>
     <img src="https://avatars.githubusercontent.com/u/105026124?v=4"
@@ -81,8 +81,8 @@ The field of software engineering has developed greatly in recent decades, and a
   </a>
 </td>
 <td align="center" valign="top" width="20%">
-  <a href="https://github.com/gibclay">
-    Shubh<br />
+  <a href="https://github.com/Shubham14-02">
+    Shubham Amrelia<br />
     <small>Developer</small><br/>
     <img src="https://avatars.githubusercontent.com/u/105026124?v=4"
       width="150" 
