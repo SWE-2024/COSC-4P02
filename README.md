@@ -39,7 +39,6 @@ The objective of this project is to develop an Interactive Software Training Eng
       height="150">
   </a>
 </td>
-</tr>
 <td align="center" valign="top" width="20%">
   <a href="https://github.com/gibclay">
     Monty Oshinov<br />
