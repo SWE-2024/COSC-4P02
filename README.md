@@ -48,6 +48,8 @@ The objective of this project is to develop an Interactive Software Training Eng
     <br />
   </a>
 </td>
+</tr>
+<tr>
 <td align="center" valign="top" width="20%">
   <a href="https://github.com/Qwest500">
     Chris Orr<br />
