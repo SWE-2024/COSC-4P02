@@ -63,7 +63,7 @@ The objective of this project is to develop an Interactive Software Training Eng
   <a href="https://github.com/Julellisg">
     Julian Ellis Geronimo<br />
     <small>Developer</small><br/>
-    <img src="https://avatars.githubusercontent.com/u/105026124?v=4"
+    <img src="https://avatars.githubusercontent.com/u/116979382?v=4"
       width="150" 
       height="150">
   </a>
@@ -72,7 +72,7 @@ The objective of this project is to develop an Interactive Software Training Eng
   <a href="https://github.com/0-20">
     Rajan Randhawa<br />
     <small>Developer</small><br/>
-    <img src="https://avatars.githubusercontent.com/u/105026124?v=4"
+    <img src="https://avatars.githubusercontent.com/u/49103023?v=4"
       width="150" 
       height="150">
   </a>
@@ -81,7 +81,7 @@ The objective of this project is to develop an Interactive Software Training Eng
   <a href="https://github.com/Shubham14-02">
     Shubham Amrelia<br />
     <small>Developer</small><br/>
-    <img src="https://avatars.githubusercontent.com/u/105026124?v=4"
+    <img src="https://avatars.githubusercontent.com/u/65832723?v=4"
       width="150" 
       height="150">
   </a>
