@@ -1,4 +1,7 @@
 # COSC-4P02 Capstone Project
+## Presentation
+
+The presentation for this project will be online.
 
 ## Problem
 
