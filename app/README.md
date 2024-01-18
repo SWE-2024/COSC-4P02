@@ -54,7 +54,7 @@ This folder is where the BITES webapplication will be built
 
 ## Installation
 
-Requires Node v18
+Requires Node v18, typescript, firebase
 
 1. Install firebase cli with your preferred package manager
 
