@@ -11,7 +11,7 @@
         dispatch('index', selectedIndex);
     }
 
-    let modules = ["Intro","UML","Testing","Observability","Maintenance",7,8,9,10,11,12,13,14];
+    let modules = ["Intro","UML","Testing","Observability","Maintenance","Agile Methodologies","Agile - Scrum"];
 </script>
 
 
