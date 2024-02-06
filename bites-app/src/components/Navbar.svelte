@@ -6,7 +6,8 @@
   
 <nav>
      <ul class='navbar'>
-        <li><a href="./">Home</a></li>
+      <!-- landing page probably doesnt belong onthe home button -->
+        <li><a href="./landing">Home</a></li>
         <li><a href="./modules">Modules</a></li>
         <li><a href="./quizzes">Quizzes</a></li>
         <li><a href="./libraries">Libraries</a></li>
