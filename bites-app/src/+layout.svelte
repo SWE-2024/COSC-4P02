@@ -1,6 +1,6 @@
 <script>
 	import './styles.css';
-	import Navbar from '../components/Navbar.svelte'
+	import Navbar from './components/Navbar.svelte';
 </script>
 
 <div class="app">
@@ -11,5 +11,4 @@
 </div>
 
 <style>
-
 </style>
