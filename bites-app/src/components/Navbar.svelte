@@ -6,10 +6,10 @@
   
 <nav>
      <ul class='navbar'>
-        <li><a href="./">Home</a></li>
-        <li><a href="./modules">Modules</a></li>
-        <li><a href="./quizzes">Quizzes</a></li>
-        <li><a href="./libraries">Libraries</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/modules">Modules</a></li>
+        <li><a href="/quizzes">Quizzes</a></li>
+        <li><a href="/libraries">Libraries</a></li>
      <button on:click={onClickHandler}>Log in</button>
      </ul>
 </nav>
@@ -17,7 +17,6 @@
 <style>
     .navbar {
       list-style-type: none;
-      align: left;
       background-color: aliceblue;
       padding: 0.25rem;
       border-radius: 10px;
