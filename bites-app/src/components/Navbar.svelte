@@ -5,7 +5,7 @@
 </script>
   
 <nav>
-     <ul class='navbar'>
+     <ul class='navbar'>=
       <!-- landing page probably doesnt belong onthe home button -->
         <li><a href="./landing">Home</a></li>
         <li><a href="./modules">Modules</a></li>
@@ -18,7 +18,6 @@
 <style>
     .navbar {
       list-style-type: none;
-      align: left;
       background-color: aliceblue;
       padding: 0.25rem;
       border-radius: 10px;
