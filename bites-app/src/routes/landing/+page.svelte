@@ -4,6 +4,7 @@
 
 	const onClickHandler = () => {
 		console.log('hello world');
+		window.location.href = "/modules";
 	};
 </script>
 
