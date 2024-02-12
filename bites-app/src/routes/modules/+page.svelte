@@ -4,6 +4,7 @@
 
 	let selectedIndex = 1;
 
+	let selectedItem = "Item1"
 
 </script>
 
@@ -13,8 +14,8 @@
 </svelte:head>
 
 <section>
-		<Sidebar bind:selectedIndex/>
-		<Content bind:selectedIndex/>
+		<Sidebar bind:selectedIndex bind:selectedItem/>
+		<Content bind:selectedIndex bind:selectedItem/>
 	
 </section>
 
