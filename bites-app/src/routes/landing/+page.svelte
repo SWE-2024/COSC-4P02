@@ -1,7 +1,6 @@
 <script>
 	var img1 =
 		'https://media.istockphoto.com/id/1139800938/vector/stock-icon-on-white-background-flat-style-financial-market-crash-icon-for-your-web-site.jpg?s=612x612&w=0&k=20&c=ESZIEXtLpygjBHkQzBsDGV7W_N43Ba_mRGxaDEM3QMA=';
-
 	const onClickHandler = () => {
 		console.log('hello world');
 		window.location.href = "/modules";
