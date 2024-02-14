@@ -5,16 +5,19 @@
     const dispatch = createEventDispatcher();
 
     export let selectedIndex: number;
-
-    export let selectedItem:string;
+    export let selectedItem:number;
+    export let modules:any;
 
     function changeSelectedModule(index: number) {
+
         selectedIndex=index;
-        dispatch('index', selectedIndex);
+        
+       
     }
 
-    function changeSelectedItemNumber(item:string,index:number){
-        selectedItem=item;
+    function changeSelectedItemNumber(itemNumber:number,index:number){
+        selectedItem=itemNumber;
+        console.log(selectedItem);
         changeSelectedModule(index)
     }
 
@@ -25,40 +28,7 @@
         modules = [...mods];
     }
 
-    let modules = [
-        {
-            "module_name":"Intro",
-            "module_description":"Intro Module",
-            "modules_content":["Item1","Item2"],
-            "module_open":false,
-            "index":0
-        },
-        {
-            "module_name":"UML",
-            "module_description":"UML Module",
-            "modules_content":["Item1"],
-            "module_open":false,
-            "index":1
-        },{
-            "module_name":"Testing",
-            "module_description":"Testing Module",
-            "modules_content":["Item1","Item2"],
-            "module_open":false,
-            "index":2
-        },{
-            "module_name":"Observability",
-            "module_description":"Observability Module",
-            "modules_content":["Item1","Item2","Item3"],
-            "module_open":false,
-            "index":3
-        },{
-            "module_name":"Maintenance",
-            "module_description":"Maintenance Module",
-            "modules_content":["Item1","Item2"],
-            "module_open":false,
-            "index":4
-        }
-        ];
+   
 
 
 
@@ -88,8 +58,8 @@
                 <div class="module_items" class:items_opened={selectedIndex==module.index}>   
                     {#each module.modules_content as item}
                       
-                            <button on:click={() => changeSelectedItemNumber(item,module.index)} >
-                                {item}
+                            <button on:click={() => changeSelectedItemNumber(item.item_index,module.index)} >
+                                {item.item_name}
                             </button>
                         
                     {/each}
