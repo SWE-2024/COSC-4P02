@@ -5,6 +5,7 @@
     const dispatch = createEventDispatcher();
 
     export let selectedIndex: number;
+
     export let selectedItem: string;
 
     let searchText = '';
@@ -17,6 +18,7 @@
     function changeSelectedItemNumber(item:string,index:number){
         selectedItem = item;
         changeSelectedModule(index);
+
     }
 
     function openModule(index:number){
@@ -60,6 +62,7 @@
         }
     ];
 
+
     $: filteredModules = searchText ? modules.filter(module => 
         module.module_name.toLowerCase().includes(searchText.toLowerCase()) ||
         module.module_description.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -92,8 +95,8 @@
                 <div class="module_items" class:items_opened={selectedIndex==module.index}>   
                     {#each module.modules_content as item}
                       
-                            <button on:click={() => changeSelectedItemNumber(item,module.index)} >
-                                {item}
+                            <button on:click={() => changeSelectedItemNumber(item.item_index,module.index)} >
+                                {item.item_name}
                             </button>
                         
                     {/each}
