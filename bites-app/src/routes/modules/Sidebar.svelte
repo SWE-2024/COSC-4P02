@@ -5,48 +5,85 @@
     const dispatch = createEventDispatcher();
 
     export let selectedIndex: number;
-    export let selectedItem:number;
-    export let modules:any;
+
+    export let selectedItem: string;
+
+    let searchText = '';
 
     function changeSelectedModule(index: number) {
-
-        selectedIndex=index;
-        
-       
+        selectedIndex = index;
+        dispatch('index', selectedIndex);
     }
 
-    function changeSelectedItemNumber(itemNumber:number,index:number){
-        selectedItem=itemNumber;
-        console.log(selectedItem);
-        changeSelectedModule(index)
+    function changeSelectedItemNumber(item:string,index:number){
+        selectedItem = item;
+        changeSelectedModule(index);
+
     }
 
     function openModule(index:number){
-        //modules[index].module_open = !modules[index].module_open
-        let mods = modules
-        mods[index].module_open = !mods[index].module_open
+        let mods = modules;
+        mods[index].module_open = !mods[index].module_open;
         modules = [...mods];
     }
 
-   
+    let modules = [
+        {
+            "module_name":"Intro",
+            "module_description":"Intro Module Description",
+            "modules_content":["Item1","Item2"],
+            "module_open":false,
+            "index":0
+        },
+        {
+            "module_name":"UML",
+            "module_description":"UML Module",
+            "modules_content":["Item1"],
+            "module_open":false,
+            "index":1
+        },{
+            "module_name":"Testing",
+            "module_description":"Testing Module",
+            "modules_content":["Item1","Item2"],
+            "module_open":false,
+            "index":2
+        },{
+            "module_name":"Observability",
+            "module_description":"Observability Module",
+            "modules_content":["Item1","Item2","Item3"],
+            "module_open":false,
+            "index":3
+        },{
+            "module_name":"Maintenance",
+            "module_description":"Maintenance Module",
+            "modules_content":["Item1","Item2"],
+            "module_open":false,
+            "index":4
+        }
+    ];
 
 
+    $: filteredModules = searchText ? modules.filter(module => 
+        module.module_name.toLowerCase().includes(searchText.toLowerCase()) ||
+        module.module_description.toLowerCase().includes(searchText.toLowerCase()) ||
+        module.modules_content.some(item => item.toLowerCase().includes(searchText.toLowerCase()))
+    ) : modules;
 
 </script>
-
 
 <div class="container">
     <div class="course-header">
         <h3>Software Engineering</h3>
-        <p>{modules.length} Modules</p>
+        <p>{modules.length} Modules </p>
+        <input type="text" class="searchBar" placeholder="Search modules..." bind:value={searchText} />            
     </div>
     <div class="module-container">
         {#each modules as module}
-        <div class="module-card" >
+        <div class="module-card" style="{!filteredModules.length || filteredModules.includes(module) ? '' : 'display: none;'}">
             <button class="module_title_container" class:selected={selectedIndex==module.index} on:click={() => changeSelectedModule(module.index)}>
-                <div >
+                <div>
                     <h4>{module.module_name}</h4>
-                    <p> {module.module_description} description</p>
+                    <p> {module.module_description}</p>
                 </div>
             
                 <button class="module_opener_button" on:click={() => openModule(module.index)}>
@@ -63,15 +100,12 @@
                             </button>
                         
                     {/each}
-                    
                 </div>
             {/if}
         </div>
         {/each}
-       
     </div>
 </div>
-
 
 <style>
 
@@ -96,7 +130,6 @@
     background: lightsteelblue; 
     }
 
-  
     .container{
         width:20%;
         border-right: 3px rgba(86, 86, 86, 0.534) solid;
@@ -126,7 +159,6 @@
         margin-right:0.25rem;
     }
 
-
     .module-container{    
 
         padding:0rem 0.5rem 0rem 0rem;
@@ -134,7 +166,6 @@
         border-radius: 5px;
     }
     
-   
     .module-card{
          border-bottom: 2px solid  rgb(69, 69, 69);
     }
@@ -149,19 +180,14 @@
         
     }
 
-    
     .module_title_container:hover{
         border-left: 3px solid #646cff;
     }
-
-
 
     .selected{
         border-left: 3px solid #646cff;
         background-color: rgb(46, 46, 46);
     }
-    
-
     
     .module_opener_button{
         background-color: azure;
@@ -175,7 +201,6 @@
         align-items: center;
         justify-content: center;
     }
- 
 
     .module_opener_button img{
         padding: 0;
@@ -213,9 +238,27 @@
     .module_items button:hover{
         border-bottom: 3px solid #646cff;
     }
+
     .items_opened{
         background-color: rgb(46, 46, 46);
         border-left: 3px solid #646cff;
     }
-    
+
+    .searchBar{
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #646cff;
+        color: white;
+        font-size: 14px;
+        background-color: rgb(46, 46, 46);
+        padding: 5px;
+        transition: transform 0.3s ease;
+
+    }
+
+    .searchBar:hover {
+        transform: scale(102%);
+        border-color: white
+    }
+
 </style>
