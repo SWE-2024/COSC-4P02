@@ -91,9 +91,11 @@
             {#if module.module_open}
                 <div class="module_items" class:items_opened={selectedIndex==module.index}>   
                     {#each module.modules_content as item}
-                        <button on:click={() => changeSelectedItemNumber(item,module.index)} >
-                            {item}
-                        </button>
+                      
+                            <button on:click={() => changeSelectedItemNumber(item,module.index)} >
+                                {item}
+                            </button>
+                        
                     {/each}
                 </div>
             {/if}
