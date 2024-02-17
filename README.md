@@ -72,7 +72,7 @@ The objective of this project is to develop an Interactive Software Training Eng
   </a>
 </td>
 <td align="center" valign="top" width="20%">
-  <a href="https://github.com/0-20">
+  <a href="https://github.com/rajrand">
     Rajan Randhawa<br />
     <small>Developer</small><br/>
     <img src="https://avatars.githubusercontent.com/u/49103023?v=4"
