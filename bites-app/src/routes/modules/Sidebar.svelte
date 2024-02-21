@@ -1,77 +1,93 @@
-<script lang="ts">
-    import { createEventDispatcher } from 'svelte';
-    import arrowImage from '../../assets/arrow.png';    
+    <script lang="ts">
+        import { createEventDispatcher } from 'svelte';
+        import arrowImage from '../../assets/arrow.png';    
 
-    const dispatch = createEventDispatcher();
-
-    export let selectedIndex: number;
-    export let selectedItem:number;
-    export let modules:any;
-
-    function changeSelectedModule(index: number) {
-
-        selectedIndex=index;
-        
-       
+    interface Item {
+        item_index: number;
+        item_name: string;
+        item_type: string;
+        item_url: string;
     }
 
-    function changeSelectedItemNumber(itemNumber:number,index:number){
-        selectedItem=itemNumber;
-        console.log(selectedItem);
-        changeSelectedModule(index)
+    interface Module {
+        module_name: string;
+        module_description: string;
+        modules_content: Item[];
+        module_open: boolean;
+        index: number;
     }
 
-    function openModule(index:number){
-        //modules[index].module_open = !modules[index].module_open
-        let mods = modules
-        mods[index].module_open = !mods[index].module_open
-        modules = [...mods];
-    }
+        const dispatch = createEventDispatcher();
 
-   
+        export let selectedIndex: number;
+        export let selectedItem:number;
+        export let modules: Module[]; // Changed this from Any to Interface to allow for filtering
 
+        let searchString = '';
 
+        function changeSelectedModule(index: number) {
+            selectedIndex=index;
+        }
 
-</script>
+        function changeSelectedItemNumber(itemNumber:number,index:number){
+            selectedItem=itemNumber;
+            console.log(selectedItem);
+            changeSelectedModule(index)
+        }
 
+        function openModule(index:number){
+            //modules[index].module_open = !modules[index].module_open
+            let mods = modules
+            mods[index].module_open = !mods[index].module_open
+            modules = [...mods];
+        }
 
-<div class="container">
-    <div class="course-header">
-        <h3>Software Engineering</h3>
-        <p>{modules.length} Modules</p>
-    </div>
-    <div class="module-container">
-        {#each modules as module}
-        <div class="module-card" >
-            <button class="module_title_container" class:selected={selectedIndex==module.index} on:click={() => changeSelectedModule(module.index)}>
-                <div >
-                    <h4>{module.module_name}</h4>
-                    <p> {module.module_description} description</p>
-                </div>
-            
-                <button class="module_opener_button" on:click={() => openModule(module.index)}>
-                    <img class:module_opened={module.module_open} src="{arrowImage}" alt="arrow">
-                </button>
-            
-            </button>
-            {#if module.module_open}
-                <div class="module_items" class:items_opened={selectedIndex==module.index}>   
-                    {#each module.modules_content as item}
-                      
-                            <button on:click={() => changeSelectedItemNumber(item.item_index,module.index)} >
-                                {item.item_name}
-                            </button>
-                        
-                    {/each}
-                    
-                </div>
-            {/if}
+        // Search Bar Filter only displays modules with relevant name, description or content that matches inputted searchString
+        $: filteredModules = searchString ? modules.filter(module =>
+        module.module_name.toLowerCase().includes(searchString.toLowerCase()) ||
+        module.module_description.toLowerCase().includes(searchString.toLowerCase()) ||
+        module.modules_content.some(item => item.item_name.toLowerCase().includes(searchString.toLowerCase()))
+        ) : modules;
+
+    </script>
+
+    <div class="container">
+        <div class="course-header">
+            <h3>Software Engineering</h3>
+            <p>{modules.length} Modules</p>
+            <input type="text" class="searchBar" placeholder="Search modules..." bind:value={searchString} /> <!--Create an empty search bar-->    
         </div>
-        {/each}
-       
+        <div class="module-container">
+            {#each filteredModules as module}
+            <div class="module-card">
+                <button class="module_title_container" class:selected={selectedIndex==module.index} on:click={() => changeSelectedModule(module.index)}>
+                    <div >
+                        <h4>{module.module_name}</h4>
+                        <p>{module.module_description}</p>
+                    </div>
+                
+                    <button class="module_opener_button" on:click={() => openModule(module.index)}>
+                        <img class:module_opened={module.module_open} src="{arrowImage}" alt="arrow">
+                    </button>
+                
+                </button>
+                {#if module.module_open}
+                    <div class="module_items" class:items_opened={selectedIndex==module.index}>   
+                        {#each module.modules_content as { item_index, item_name }}
+                        
+                                <button on:click={() => changeSelectedItemNumber(item_index, module.index)} >
+                                    {item_name}
+                                </button>
+                            
+                        {/each}
+                        
+                    </div>
+                {/if}
+            </div>
+            {/each}
+        
+        </div>
     </div>
-</div>
-
 
 <style>
 
@@ -216,6 +232,23 @@
     .items_opened{
         background-color: rgb(46, 46, 46);
         border-left: 3px solid #646cff;
+    }
+
+    .searchBar{
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #646cff;
+        color: white;
+        font-size: 14px;
+        background-color: rgb(46, 46, 46);
+        padding: 5px;
+        transition: transform 0.3s ease;
+
+    }
+
+    .searchBar:hover {
+        transform: scale(102%);
+        border-color: white
     }
     
 </style>
