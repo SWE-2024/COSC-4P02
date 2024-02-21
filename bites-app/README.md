@@ -15,19 +15,21 @@ Requires Node v18, typescript, firebase
 2. Clone the repository from github
 
 ```
-gh repo clone SWE-2024/COSC-4P02 
+gh repo clone SWE-2024/COSC-4P02
 ```
 
 3. To use cd into the app folder
 
 ```
-cd app/
+cd bites-app/
 ```
 
 5. Install dependencies with your preferred package manager
+
 ```
 npm i
 ```
+
 5. Run Svelte (in development mode)
 
 ```

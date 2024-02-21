@@ -1,5 +1,7 @@
 <script>
-	import './styles.css';
+	// import './styles.css';
+	import '../app.css';
+	import 'tailwindcss/tailwind.css';
 	import Navbar from '../components/Navbar.svelte';
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
