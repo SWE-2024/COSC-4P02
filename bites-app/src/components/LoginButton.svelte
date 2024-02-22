@@ -3,6 +3,8 @@
 	import { authStore } from '$lib/stores/authStore';
 	import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 
+	let login_modal_open = false;
+
 	const googleLogin = async () => {
 		const provider = new GoogleAuthProvider();
 
@@ -12,6 +14,7 @@
 				isLoggedIn: true,
 				user: result.user
 			};
+			login_modal_open = false;
 		});
 	};
 
@@ -22,6 +25,10 @@
 				user: undefined
 			};
 		});
+	};
+
+	const toggleLoginModal = () => {
+		login_modal_open = !login_modal_open;
 	};
 
 	// leaving this in case we want to ever bring back redirect log in
@@ -53,8 +60,22 @@
 	{#if $authStore.isLoggedIn}
 		<button class="btn" on:click="{() => logOut()}">Log out</button>
 	{:else}
-		<button on:click="{() => googleLogin()}">Log in</button>
+		<button class="btn" on:click="{toggleLoginModal}">Log in</button>
 	{/if}
+
+	<dialog class="modal" class:modal-open="{login_modal_open}">
+		<div class="modal-box join join-vertical">
+			<h3 class="font-bold text-lg flex">Select a login provider</h3>
+			<div class="divider"></div>
+			<button class="btn" on:click="{() => googleLogin()}">Login with Google</button>
+			<button class="btn">Login with Apple</button>
+			<button class="btn">Login with Facebook</button>
+		</div>
+		<div></div>
+		<form method="dialog" class="modal-backdrop">
+			<button on:click="{toggleLoginModal}">Close</button>
+		</form>
+	</dialog>
 </main>
 
 <style>
