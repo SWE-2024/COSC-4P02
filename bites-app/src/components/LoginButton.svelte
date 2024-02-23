@@ -58,18 +58,18 @@
 
 <main>
 	{#if $authStore.isLoggedIn}
-		<button class="btn" on:click="{() => logOut()}">Log out</button>
+		<button class="btn text-lg" on:click="{() => logOut()}">Log out</button>
 	{:else}
-		<button class="btn" on:click="{toggleLoginModal}">Log in</button>
+		<button class="btn text-lg" on:click="{toggleLoginModal}">Log in</button>
 	{/if}
 
 	<dialog class="modal" class:modal-open="{login_modal_open}">
 		<div class="modal-box join join-vertical">
 			<h3 class="font-bold text-lg flex">Select a login provider</h3>
 			<div class="divider"></div>
-			<button class="btn" on:click="{() => googleLogin()}">Login with Google</button>
-			<button class="btn">Login with Apple</button>
-			<button class="btn">Login with Facebook</button>
+			<button class="btn btn-lg" on:click="{() => googleLogin()}">Login with Google</button>
+			<button class="btn btn-lg">Login with Apple</button>
+			<button class="btn btn-lg">Login with Facebook</button>
 		</div>
 		<div></div>
 		<form method="dialog" class="modal-backdrop">
