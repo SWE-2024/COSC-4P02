@@ -1,11 +1,6 @@
 <script>
 </script>
 
-<!-- <li><a href="./home">Home</a></li>
-		<li><a href="./modules">Modules</a></li>
-		<li><a href="./quizzes">Quizzes</a></li>
-		<li><a href="./libraries">Libraries</a></li> -->
-
 <main>
 	<footer>
 		<div class="footer-links">
