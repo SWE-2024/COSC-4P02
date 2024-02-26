@@ -24,7 +24,7 @@
 		</div>
 
 		<div class="second-div">
-			<p>© Niagara-on-the-Lake Museum 2024. All Rights Reserved.</p>
+			<p>© Brock Interactive Training for Engineering Students 2024. All Rights Reserved.</p>
 		</div>
 	</footer>
 </main>
