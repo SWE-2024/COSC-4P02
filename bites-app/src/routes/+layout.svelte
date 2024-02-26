@@ -3,6 +3,7 @@
 	import '../app.css';
 	import 'tailwindcss/tailwind.css';
 	import Navbar from '../components/Navbar.svelte';
+	import Footer from '../components/Footer.svelte';
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 	import { onAuthStateChanged } from 'firebase/auth';
@@ -28,6 +29,7 @@
 	<main>
 		<slot />
 	</main>
+	<Footer />
 </div>
 
 <style>

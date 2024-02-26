@@ -6,7 +6,6 @@
 
 <main>
 	<h1>Hello, World! This is the landing page.</h1>
-	<h2>Temp H2 text</h2>
 </main>
 
 <style>
