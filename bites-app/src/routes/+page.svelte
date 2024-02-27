@@ -8,7 +8,6 @@
 	const onClickHandler = () => {
 		console.log('hello world');
 	};
-
 </script>
 
 <svelte:head>
@@ -16,9 +15,8 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-
 <div class="container">
-	<h1>Brock Interactive Training for Engineering Students</h1>
+	<h1 class="header">Brock Interactive Training for Engineering Students</h1>
 	<div class="content">
 		<p>
 			The field of software engineering has developed greatly in recent decades, and as such there
@@ -34,17 +32,19 @@
 			BITES aims to create an immersive and adaptive learning environment for software engineering and
 			other related courses, enhancing student understanding and performance.
 		</p>
-		<img src={img1} alt="Training Program Image" />
+		<img src="{img1}" alt="Training Program Image" />
 	</div>
 
-	<!-- Button - Should bring you to the modules or something -->
-	<button on:click={onClickHandler}>Get Started</button>
+	<div class="text-center">
+		<button class="btn btn-outline btn-accent" on:click="{onClickHandler}">Get Started</button>
+	</div>
+	
 </div>
 
 <div class="container">
-	<h1>Outline of Content</h1>
+	<h1 class="header">Outline of Content</h1>
 	<div class="content">
-		<img src={img1} alt="Training Program Image" />
+		<img src="{img1}" alt="Training Program Image" />
 		<p>
 			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus ducimus debitis aliquam
 			perspiciatis error aspernatur itaque, neque cum delectus esse cupiditate incidunt iusto at
@@ -55,52 +55,26 @@
 		</p>
 	</div>
 
-	<!-- Button - Should bring you to the modules or something -->
-	<button on:click={onClickHandler}>Go to Modules</button>
+	<div class="text-center">
+		<button class="btn btn-outline btn-accent" on:click="{onClickHandler}">Go to Modules</button>
+	</div>
 </div>
 
+<!-- Using tailwindcss -->
 <style>
-	h1 {
-		font-size: 48px;
-	}
-
-	button {
-		background-color: rgb(170, 0, 0);
-		border-radius: 8px;
-		padding: 16px;
-	}
-
 	.container {
-		background-color: rgba(0, 0, 0, 0.2);
-		border-radius: 16px;
+		@apply bg-secondary rounded-box p-6 mx-auto my-6;
+	}
 
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: 80%;
-		padding: 16px;
-		margin: 16px auto;
-		text-align: center;
+	.header {
+		@apply text-5xl text-center font-bold;
 	}
 
 	.content {
-		display: flex;
-		justify-content: space-between; /* Divide the space evenly between items */
-		width: 100%; /* Ensure content takes up full width of container */
-		padding: 20px; /* Add padding for spacing */
-	}
-
-	.content p {
-		flex: 1; /* Each item takes up equal space */
-		text-align: left;
-		margin: 0; /* Remove default margins */
+		@apply flex p-6;
 	}
 
 	.content img {
-		flex: 1; /* Each item takes up equal space */
-		max-width: 40%; /* Ensure image does not exceed container width */
-		height: auto; /* Maintain aspect ratio */
-		padding: 16px;
-		margin-left: 20px; /* Adjust as needed */
+		@apply max-w-lg p-6;
 	}
 </style>
