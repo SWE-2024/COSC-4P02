@@ -8,8 +8,8 @@
 				<p class="footer-title">Site Links</p>
 				<p><a href="./home">Home</a></p>
 				<p><a href="./modules">Modules</a></p>
-                <p><a href="./quizzes">Quizzes</a></p>
-                <p><a href="./libraries">Libraries</a></p>
+				<p><a href="./quizzes">Quizzes</a></p>
+				<p><a href="./libraries">Libraries</a></p>
 			</div>
 			<div class="column">
 				<p class="footer-title">Related Links</p>
@@ -27,7 +27,7 @@
 <style>
 	footer {
 		background-color: rgba(0, 0, 0, 0.2);
-        border-top: 2px rgb(170, 0, 0) solid;
+		border-top: 2px rgb(170, 0, 0) solid;
 		color: #fff;
 		margin: 0;
 		/* text-align: center; */
@@ -49,7 +49,7 @@
 	}
 
 	.second-div {
-        text-align: center;
+		text-align: center;
 		background-color: rgb(170, 0, 0);
 		padding: 12px;
 	}

@@ -11,7 +11,7 @@ export default {
       {
         "brock-dark": {
           "primary": "#aa0000", // base brock color
-          "secondary": "#00a5ff", // default
+          "secondary": "#161412", // prev: #59c4ff
           "accent": "#c81414", // slightly brighter brock color
           "neutral": "#160e02", // default
           "base-100": "#1c1917", // background color
