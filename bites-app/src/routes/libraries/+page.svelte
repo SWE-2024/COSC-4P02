@@ -5,9 +5,8 @@
 </svelte:head>
 
 <script lang="ts">
-	import type { Load } from "@sveltejs/kit"
 	let columns = ["Name", "Description", "Site"]
-	export let data: Object
+	export let data: any
 	let library = data.props // fix this
 </script>
 
