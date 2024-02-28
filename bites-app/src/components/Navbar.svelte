@@ -1,21 +1,26 @@
 <script>
 	import LoginButton from './LoginButton.svelte';
-
-	const onClickHandler = () => {
-		console.log('hello world');
-	};
 </script>
 
 <nav>
 	<ul class="navbar">
-		<!-- landing page probably doesnt belong onthe home button -->
-		<li><a href="./home">Home</a></li>
-		<li><a href="./modules">Modules</a></li>
-		<li><a href="./quizzes">Quizzes</a></li>
-		<li><a href="./libraries">Libraries</a></li>
+		<a href="./home" class="btn btn-ghost text-lg">Home</a>
+		<a href="./modules" class="btn btn-ghost text-lg">Modules</a>
+		<a href="./quizzes" class="btn btn-ghost text-lg">Quizzes</a>
+		<a href="./libraries" class="btn btn-ghost text-lg">Libraries</a>
 		<LoginButton />
 	</ul>
 </nav>
+
+<!-- <div class="navbar">
+	<div class="flex-1">
+		<a href="./home" class="btn btn-ghost text-lg">Home</a>
+		<a href="./modules" class="btn btn-ghost text-lg">Modules</a>
+		<a href="./quizzes" class="btn btn-ghost text-lg">Quizzes</a>
+		<a href="./libraries" class="btn btn-ghost text-lg">Libraries</a>
+		<div class="right"><LoginButton /></div>
+	</div>
+</div> -->
 
 <style>
 	.navbar {
