@@ -2,6 +2,16 @@
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
+    colors: {
+      "alice-blue": {
+        "default": "#f0f8ff",
+        "slightly-darker": "#e0e8ef",
+      },
+      "background-black": {
+        "default": "#00000033",
+        "slightly-lighter": "#10101033",
+      },
+    },
     extend: {},
   },
   plugins: [require('daisyui')],
@@ -19,7 +29,7 @@ export default {
           "success": "#00c900", // default
           "warning": "#e99600", // default
           "error": "#bc1f49", // default
-        }
+        },
       }],
   },
 }
