@@ -3,6 +3,10 @@
 	import { authStore } from '$lib/stores/authStore';
 	import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 
+	import google_icon from "$lib/images/icon-google.svg"
+	import facebook_icon from "$lib/images/icon-facebook.svg"
+	import apple_icon from "$lib/images/icon-apple.svg"
+
 	let login_modal_open = false;
 
 	const googleLogin = async () => {
@@ -67,9 +71,18 @@
 		<div class="modal-box join join-vertical">
 			<h3 class="font-bold text-lg flex">Select a login provider</h3>
 			<div class="divider"></div>
-			<button class="btn btn-lg" on:click="{() => googleLogin()}">Login with Google</button>
-			<button class="btn btn-lg">Login with Apple</button>
-			<button class="btn btn-lg">Login with Facebook</button>
+			<button class="btn btn-lg bg-[color:white] text-[color:black] mb-3" on:click="{() => googleLogin()}">
+				<img src={google_icon} alt="Google Logo" class="absolute left-11 h-8 w-8"/>
+				Login with Google
+			</button>
+			<button class="btn btn-lg bg-[color:black] mb-3">
+				<img src={apple_icon} alt="Apple Logo" class="absolute left-10 h-8 w-8"/>
+				Login with Apple
+			</button>
+			<button class="btn btn-lg bg-[color:#1778f2] text-[color:white]">
+				<img src={facebook_icon} alt="Facebook Logo" class="absolute left-11 h-7 w-7"/>
+				Login with Facebook
+			</button>
 		</div>
 		<div></div>
 		<form method="dialog" class="modal-backdrop">
