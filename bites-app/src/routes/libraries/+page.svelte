@@ -7,7 +7,7 @@
 <script lang="ts">
 	let columns = ["Name", "Description", "Site"]
 	export let data: any
-	let library = data.props // fix this
+	let library = data.props
 </script>
 
 <table class="library">
