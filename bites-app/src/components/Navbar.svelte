@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { collection, doc, getDoc, setDoc } from 'firebase/firestore';
 	import LoginButton from './LoginButton.svelte';
-	import { auth, db } from '$lib/firebase/firebase.client';
 </script>
 
 <div class="flex justify-center">
@@ -88,21 +86,3 @@
 		<LoginButton />
 	</div>
 </div>
-<button
-	class="btn text-xl"
-	on:click="{async () => {
-		try {
-			const docRef = doc(collection(db, 'users'), auth.currentUser?.uid);
-			const docSnap = await getDoc(docRef);
-
-			if (!docSnap.exists()) {
-				setDoc(docRef, { uid: auth.currentUser?.uid, admin: false });
-				console.log('Added account to firebase.');
-			} else {
-				console.log('Account already recorded in firebase');
-			}
-		} catch (e) {
-			console.error(e);
-		}
-	}}">Add User</button
->

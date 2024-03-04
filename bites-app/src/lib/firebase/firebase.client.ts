@@ -11,14 +11,6 @@ export let app: FirebaseApp;
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  // apiKey: "AIzaSyBby9AgARgN3N3Ap7h3izKQ_szTVSVkknc",
-  // authDomain: "bites-login.firebaseapp.com",
-  // projectId: "bites-login",
-  // storageBucket: "bites-login.appspot.com", 
-  // messagingSenderId: "625166516857",
-  // appId: "1:625166516857:web:f4e7f329e5074407988aa8",
-  // measurementId: "G-LS59VE0LBQ"
-
   apiKey: import.meta.env.VITE_APIKEY,
   authDomain: import.meta.env.VITE_AUTHDOMAIN,
   projectId: import.meta.env.VITE_PROJECTID,
