@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	// import './styles.css';
 	import '../app.css';
 	import 'tailwindcss/tailwind.css';
@@ -14,7 +14,7 @@
 	if (browser) {
 		onMount(() => {
 			console.log('Mounted DOM');
-			onAuthStateChanged(auth, (user) => {
+			onAuthStateChanged(auth, async (user) => {
 				$authStore = {
 					isLoggedIn: user != null,
 					user
