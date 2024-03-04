@@ -24,7 +24,7 @@
 	}
 </script>
 
-<div class="app">
+<div class="app bg-gradient-to-r from-base-100 from-70% to-base-200">
 	<Navbar />
 	<main>
 		<slot />

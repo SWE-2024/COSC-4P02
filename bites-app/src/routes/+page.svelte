@@ -38,7 +38,6 @@
 	<div class="text-center">
 		<button class="btn btn-outline btn-accent" on:click="{onClickHandler}">Get Started</button>
 	</div>
-	
 </div>
 
 <div class="container">
