@@ -2,22 +2,21 @@
         import { createEventDispatcher } from 'svelte';
         import arrowImage from '../../assets/arrow.png';    
 
-    interface Item {
-        item_index: number;
-        item_name: string;
-        item_type: string;
-        item_url: string;
-    }
+        interface Item {
+            item_index: number;
+            item_name: string;
+            item_type: string;
+            item_url: string;
+        }
 
-    interface Module {
-        module_name: string;
-        module_description: string;
-        modules_content: Item[];
-        module_open: boolean;
-        index: number;
-    }
+        interface Module {
+            module_name: string;
+            module_description: string;
+            modules_content: Item[];
+            module_open: boolean;
+            index: number;
+        }
 
-        const dispatch = createEventDispatcher();
 
         export let selectedIndex: number;
         export let selectedItem:number;
@@ -31,7 +30,6 @@
 
         function changeSelectedItemNumber(itemNumber:number,index:number){
             selectedItem=itemNumber;
-            console.log(selectedItem);
             changeSelectedModule(index)
         }
 
@@ -44,9 +42,9 @@
 
         // Search Bar Filter only displays modules with relevant name, description or content that matches inputted searchString
         $: filteredModules = searchString ? modules.filter(module =>
-        module.module_name.toLowerCase().includes(searchString.toLowerCase()) ||
-        module.module_description.toLowerCase().includes(searchString.toLowerCase()) ||
-        module.modules_content.some(item => item.item_name.toLowerCase().includes(searchString.toLowerCase()))
+            module.module_name.toLowerCase().includes(searchString.toLowerCase()) ||
+            module.module_description.toLowerCase().includes(searchString.toLowerCase()) ||
+            module.modules_content.some(item => item.item_name.toLowerCase().includes(searchString.toLowerCase()))
         ) : modules;
 
     </script>
@@ -57,6 +55,7 @@
             <p>{modules.length} Modules</p>
             <input type="text" class="searchBar" placeholder="Search modules..." bind:value={searchString} /> <!--Create an empty search bar-->    
         </div>
+        
         <div class="module-container">
             {#each filteredModules as module}
             <div class="module-card">
@@ -87,6 +86,11 @@
             {/each}
         
         </div>
+        <!-- {#if filteredModules.length=0}
+            <div>
+                <h3>Nothing Found</h3>
+            </div>  
+        {/if} -->
     </div>
 
 <style>
@@ -120,6 +124,19 @@
         overflow-y: scroll;
         overflow-x: hidden;
     }
+
+    h3{
+        font-size: 1.8rem;
+        color: white;
+    }
+
+    h4{
+        font-size: 1.2rem;
+        align-items: left;
+        text-align: left;
+        color: white;
+        font-weight: 400;
+    }
    
     h3, h4{
         padding:0;
@@ -131,6 +148,11 @@
         margin:0;
         opacity: 0.7;
         font-size: 0.75rem;
+        text-align: left;
+    }
+    
+    button{
+        text-align: left;
     }
 
     .course-header{
@@ -243,11 +265,11 @@
         background-color: rgb(46, 46, 46);
         padding: 5px;
         transition: transform 0.3s ease;
+        width: 100%;
 
     }
 
-    .searchBar:hover {
-        transform: scale(102%);
+    .searchBar:hover {  
         border-color: white
     }
     
