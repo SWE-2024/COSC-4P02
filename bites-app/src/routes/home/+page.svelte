@@ -1,9 +1,10 @@
 <script>
+	import { goto } from '$app/navigation';
+
 	var img1 =
 		'https://media.istockphoto.com/id/1139800938/vector/stock-icon-on-white-background-flat-style-financial-market-crash-icon-for-your-web-site.jpg?s=612x612&w=0&k=20&c=ESZIEXtLpygjBHkQzBsDGV7W_N43Ba_mRGxaDEM3QMA=';
 	const onClickHandler = () => {
-		console.log('hello world');
-		window.location.href = "/modules";
+		goto('/modules');
 	};
 </script>
 
@@ -24,17 +25,17 @@
 			BITES aims to create an immersive and adaptive learning environment for software engineering and
 			other related courses, enhancing student understanding and performance.
 		</p>
-		<img src={img1} alt="Training Program Image" />
+		<img src="{img1}" alt="Training Program Image" />
 	</div>
 
 	<!-- Button - Should bring you to the modules or something -->
-	<button on:click={onClickHandler}>Get Started</button>
+	<button on:click="{onClickHandler}">Get Started</button>
 </div>
 
 <div class="container">
 	<h1>Outline of Content</h1>
 	<div class="content">
-		<img src={img1} alt="Training Program Image" />
+		<img src="{img1}" alt="Training Program Image" />
 		<p>
 			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus ducimus debitis aliquam
 			perspiciatis error aspernatur itaque, neque cum delectus esse cupiditate incidunt iusto at
@@ -46,7 +47,7 @@
 	</div>
 
 	<!-- Button - Should bring you to the modules or something -->
-	<button on:click={onClickHandler}>Go to Modules</button>
+	<button on:click="{onClickHandler}">Go to Modules</button>
 </div>
 
 <style>
