@@ -1,17 +1,27 @@
 <script>
 	import { goto } from '$app/navigation';
 
-	var img1 =
+	var computerCommonsImg =
+	'https://brocku.ca/brock-news/wp-content/uploads/2020/09/image001.jpg'
+	
+	var test =
 		'https://media.istockphoto.com/id/1139800938/vector/stock-icon-on-white-background-flat-style-financial-market-crash-icon-for-your-web-site.jpg?s=612x612&w=0&k=20&c=ESZIEXtLpygjBHkQzBsDGV7W_N43Ba_mRGxaDEM3QMA=';
-	const onClickHandler = () => {
+
+	var libraryImg =
+	'https://live.staticflickr.com/3494/4078029168_df7d060636_z.jpg'	
+		const onClickHandler = () => {
 		goto('/modules');
 	};
 </script>
 
 <div class="container">
+	<div class="logo-container">
+        <img src="src/assets/logo.png" alt="Logo" class="logo">
+    </div>
 	<h1>Brock Interactive Training for Engineering Students</h1>
 	<div class="content">
-		<p>
+		<p style="text-align: center">
+			<br><br>
 			The field of software engineering has developed greatly in recent decades, and as such there
 			is a growing need for supporting tools to assist students and educators in training new
 			software engineers. User-friendly applications improve the process of education are a constant
@@ -25,28 +35,36 @@
 			BITES aims to create an immersive and adaptive learning environment for software engineering and
 			other related courses, enhancing student understanding and performance.
 		</p>
-		<img src="{img1}" alt="Training Program Image" />
+		<img src="{computerCommonsImg}" alt="Computer Commons" />
 	</div>
 
-	<!-- Button - Should bring you to the modules or something -->
 	<button on:click="{onClickHandler}">Get Started</button>
 </div>
 
 <div class="container">
 	<h1>Outline of Content</h1>
 	<div class="content">
-		<img src="{img1}" alt="Training Program Image" />
-		<p>
-			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus ducimus debitis aliquam
-			perspiciatis error aspernatur itaque, neque cum delectus esse cupiditate incidunt iusto at
-			maxime ex facere accusamus culpa? Libero.<br /><br />
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore voluptatibus consequuntur possimus
-			magnam mollitia totam ut. Ratione, aut obcaecati. Fugit provident autem necessitatibus sunt alias,
-			nobis neque doloremque perspiciatis et?
+		<img src="{libraryImg}" alt="Library" />
+		<p style="text-align: center">
+			<br><br>
+			Introduction Module 
+			<br><br>
+			Software Processes 
+			<br><br>
+			Requirements Engineering
+			<br><br>
+			Systems Modeling
+			<br><br>
+			Software Architectural Design
+			<br><br>
+			Implementation Methods
+			<br><br>
+			Software Testing
+			<br><br>
+			Software Evolution
 		</p>
 	</div>
 
-	<!-- Button - Should bring you to the modules or something -->
 	<button on:click="{onClickHandler}">Go to Modules</button>
 </div>
 
@@ -56,13 +74,13 @@
 	}
 
 	button {
-		background-color: rgb(170, 0, 0);
+		background-color: rgb(171, 0, 0);
 		border-radius: 8px;
 		padding: 16px;
 	}
 
 	.container {
-		background-color: rgba(0, 0, 0, 0.2);
+		background-color: rgba(0, 0, 0, 0.8);
 		border-radius: 16px;
 
 		display: flex;
@@ -88,10 +106,25 @@
 	}
 
 	.content img {
-		flex: 1; /* Each item takes up equal space */
 		max-width: 40%; /* Ensure image does not exceed container width */
 		height: auto; /* Maintain aspect ratio */
 		padding: 16px;
 		margin-left: 20px; /* Adjust as needed */
 	}
+
+	.logo-container {
+        position: relative;
+        width: 100px; /* Adjust as needed */
+        height: 100px; /* Adjust as needed */
+    }
+
+    .logo {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
 </style>

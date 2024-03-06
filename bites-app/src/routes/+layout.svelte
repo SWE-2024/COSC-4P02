@@ -33,4 +33,11 @@
 </div>
 
 <style>
-</style>
+	.app {
+	  background-color: rgba(0, 0, 0, 0.8);
+	  background-image: url('https://www.ouinfo.ca/assets/files/images/1.jpg');
+	  background-size: cover;
+	  background-position: center;
+	  opacity: 1;
+	}
+  </style>

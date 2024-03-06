@@ -7,4 +7,5 @@
         <slot />
     </main>
 </div>
-<style></style>
+<style>
+</style>

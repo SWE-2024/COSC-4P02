@@ -159,14 +159,13 @@
         padding: 1rem 1rem 1rem 1rem;
         border-bottom:1px rgb(67, 67, 67) solid;
         border-radius: 5px;
-        background-color: #646cff;
+        background-color: rgba(0, 0, 0, 0.8);
         margin-bottom:0.5rem;
         margin-right:0.25rem;
     }
 
 
     .module-container{    
-
         padding:0rem 0.5rem 0rem 0rem;
         margin-left: 0.25rem;
         border-radius: 5px;
@@ -175,6 +174,7 @@
    
     .module-card{
          border-bottom: 2px solid  rgb(69, 69, 69);
+         background-color: rgba(0, 0, 0, 0.8);
     }
 
     .module_title_container{
@@ -189,13 +189,13 @@
 
     
     .module_title_container:hover{
-        border-left: 3px solid #646cff;
+        border-left: 3px solid rgb(171, 0, 0);
     }
 
 
 
     .selected{
-        border-left: 3px solid #646cff;
+        border-left: 3px solid rgb(171, 0, 0);
         background-color: rgb(46, 46, 46);
     }
     
@@ -249,17 +249,17 @@
     }
 
     .module_items button:hover{
-        border-bottom: 3px solid #646cff;
+        border-bottom: 3px solid rgb(171, 0, 0);
     }
     .items_opened{
         background-color: rgb(46, 46, 46);
-        border-left: 3px solid #646cff;
+        border-left: 3px solid rgb(171, 0, 0);
     }
 
     .searchBar{
         margin-top: 10px;
         border-radius: 5px;
-        border: 1px solid #646cff;
+        border: 1px solid white;
         color: white;
         font-size: 14px;
         background-color: rgb(46, 46, 46);
@@ -270,7 +270,7 @@
     }
 
     .searchBar:hover {  
-        border-color: white
+        border-color: rgb(171, 0, 0);
     }
     
 </style>

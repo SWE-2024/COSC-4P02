@@ -1,7 +1,7 @@
 <!-- Quiz.svelte -->
 <script>
     let questions = [
-      { question: 'Test?', options: ['answer', 'answer', 'answer', 'answer'], correctAnswer: 'Paris' },
+      { question: 'Click a button to begin the test:', options: ['answer', 'answer', 'answer', 'answer'], correctAnswer: 'Paris' },
       { question: 'Which planet is known as the Red Planet?', options: ['Earth', 'Mars', 'Jupiter', 'Venus'], correctAnswer: 'Mars' },
     ];
   
@@ -42,12 +42,14 @@
 
   h1 {
     text-align: left;
+    color: black;
+    margin-bottom: 0.5%;
   }
 
   ul {
     list-style-type: none;
     padding: 0;
-  }
+    }
 
   li {
     margin-bottom: 10px;
@@ -55,6 +57,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
   }
 
   li.selected {
