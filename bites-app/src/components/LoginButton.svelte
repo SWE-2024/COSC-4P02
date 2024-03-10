@@ -7,7 +7,7 @@
 
 	let login_modal_open = false;
 
-	console.log($authStore.user)
+	// console.log($authStore.user)
 
 	authStore.subscribe((storedUser) => ({ user: storedUser }));
 
@@ -31,7 +31,6 @@
 		<button class="btn text-lg btn-ghost" on:click="{logoutHandler}">
 			<img src="{$authStore.user?.photoURL}" alt="" class="w-10 rounded-full" />
 			Log out
-			
 		</button>
 	{:else}
 		<button class="btn text-lg btn-ghost" on:click="{toggleLoginModal}"

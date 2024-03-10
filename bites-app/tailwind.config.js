@@ -12,7 +12,8 @@ export default {
         "slightly-lighter": "#10101033",
       },
     },
-    extend: {},
+    extend: {
+    },
   },
   plugins: [
     require('daisyui'),

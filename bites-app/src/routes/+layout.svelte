@@ -13,7 +13,6 @@
 	// wait for DOM mount then set authStore
 	if (browser) {
 		onMount(() => {
-			console.log('Mounted DOM');
 			onAuthStateChanged(auth, async (user) => {
 				$authStore = {
 					isLoggedIn: user != null,
