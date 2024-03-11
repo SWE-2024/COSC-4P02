@@ -4,9 +4,11 @@
 	import { db } from '$lib/firebase/firebase.client';
 	import { onMount } from 'svelte';
 	import { collection, onSnapshot } from 'firebase/firestore';
-	import { authStore } from '$lib/stores/authStore';
+	import { authLoading, authStore } from '$lib/stores/authStore';
 
-	// console.log(db);
+	/**
+	 * @var modules Contains module data.
+	 */
 	let modules: any = [];
 
 	onMount(() => {
@@ -21,8 +23,14 @@
 		});
 	});
 
-	let selectedIndex = 0;
-	let selectedItem = 0;
+	/**
+	 * @var selector list containing the item and module currently selected.
+	 *
+	 * Stored as [module index, item index].
+	 *
+	 * Initialized as the first item of the first module.
+	 */
+	let selector = [0, 0];
 </script>
 
 <svelte:head>
@@ -32,13 +40,24 @@
 
 <div class="join join-horizontal w-11/12 m-2 p-2 rounded-box h-[80vh]">
 	{#if modules.length > 0 && $authStore.isLoggedIn}
-		<Sidebar bind:selectedIndex bind:selectedItem {modules} />
+		<Sidebar bind:selector {modules} />
 		<div class="divider divider-horizontal"></div>
-		<Content bind:selectedIndex bind:selectedItem {modules} />
+		<Content bind:selector {modules} />
 	{/if}
 
-	{#if !$authStore.isLoggedIn}
-		<h2>Log in to see modules</h2>
+	{#if $authLoading}
+		<div class="grid grid-col-1 grid-rows=1 place-items-center w-full h-full">
+			<div class="flex flex-col items-center">
+				<h2 class="text-3xl font-bold">Currently loading, please wait</h2>
+				<span class="loading loading-lg"></span>
+			</div>
+		</div>
+	{:else if !$authStore.isLoggedIn}
+		<div class="grid grid-col-1 grid-rows=1 place-items-center w-full h-full">
+			<div class="flex flex-col items-center">
+				<h2 class="text-3xl font-bold">Please log in to see modules</h2>
+			</div>
+		</div>
 	{/if}
 </div>
 

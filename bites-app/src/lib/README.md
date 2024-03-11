@@ -23,3 +23,7 @@ import $libs/...
 > Stores
 >
 > Includes utilities for interacting with <a href='https://svelte.dev/docs/svelte-store'>svelte stores</a>.
+
+> Images
+>
+> For storing images used in the site.

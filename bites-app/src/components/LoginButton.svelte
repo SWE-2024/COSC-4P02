@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { authStore, loginWithGoogle, logout } from '$lib/stores/authStore';
+	import { authLoading, authStore, loginWithGoogle, logout } from '$lib/stores/authStore';
 
 	import google_icon from '$lib/images/icon-google.svg';
 	import facebook_icon from '$lib/images/icon-facebook.svg';
@@ -27,7 +27,12 @@
 </script>
 
 <main>
-	{#if $authStore.isLoggedIn}
+	{#if $authLoading}
+		<div class="flex">
+			<span class="loading loading-lg"></span>
+			<button class="btn btn-ghost text-lg btn-disabled">Loading</button>
+		</div>
+	{:else if $authStore.isLoggedIn}
 		<button class="btn text-lg btn-ghost" on:click="{logoutHandler}">
 			<img src="{$authStore.user?.photoURL}" alt="" class="w-10 rounded-full" />
 			Log out
