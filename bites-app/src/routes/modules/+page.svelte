@@ -6,7 +6,9 @@
 	import { collection, onSnapshot } from 'firebase/firestore';
 	import { authStore } from '$lib/stores/authStore';
 
-	// console.log(db);
+	/**
+	 * @var modules Contains module data.
+	 */
 	let modules: any = [];
 
 	onMount(() => {
@@ -21,9 +23,14 @@
 		});
 	});
 
+	/**
+	 * @var selector list containing the item and module currently selected.
+	 *
+	 * Stored as [module index, item index].
+	 *
+	 * Initialized as the first item of the first module.
+	 */
 	let selector = [0, 0];
-	// let selector[0] = 0; // selected module
-	// let selector[1] = 0; // selected item
 </script>
 
 <svelte:head>

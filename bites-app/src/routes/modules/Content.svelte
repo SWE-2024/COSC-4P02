@@ -1,5 +1,14 @@
 <script lang="ts">
+	/**
+	 * @var selector prop including the item and number currently selected.
+	 *
+	 * Stored as [module index, item index].
+	 */
 	export let selector: number[];
+
+	/**
+	 * @var modules prop containing module data.
+	 */
 	export let modules: any;
 </script>
 
@@ -21,23 +30,7 @@
 </div>
 
 <style>
-	/* .container {
-		width: 80%;
-		display: flex;
-		flex-direction: column;
-		padding-inline: 2rem;
-	} */
-
-	.module-content {
-		width: 100%;
-		height: 80%;
-	}
-
-	.module-content iframe {
-		width: 100%;
-		height: 100%;
-	}
-
+	/* Important */
 	.fill-height {
 		height: 100%;
 	}

@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { themeStore } from '$lib/stores/themeStore';
 
+	/**
+	 * @handleThemeChange Handler for theme change button.
+	 */
 	const handleThemeChange = () => {
 		switch ($themeStore.theme) {
 			case 'brock-dark':
@@ -12,6 +15,9 @@
 		}
 	};
 
+	/**
+	 * @var classname CSS class for the toggle button.
+	 */
 	export let classname: string = '';
 </script>
 
