@@ -11,6 +11,8 @@ export const authStore = writable<{
   user: undefined
 });
 
+export const authLoading = writable<boolean>(true)
+
 export const logout = async () => {
   await signOut(auth)
 }

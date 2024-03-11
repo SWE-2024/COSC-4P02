@@ -8,7 +8,7 @@
 	import { onMount } from 'svelte';
 	import { onAuthStateChanged } from 'firebase/auth';
 	import { auth } from '$lib/firebase/firebase.client';
-	import { authStore } from '$lib/stores/authStore';
+	import { authLoading, authStore } from '$lib/stores/authStore';
 	import DarkModeToggle from '../components/DarkModeToggle.svelte';
 	import { themeStore } from '$lib/stores/themeStore';
 
@@ -20,6 +20,7 @@
 					isLoggedIn: user != null,
 					user
 				};
+				authLoading.set(false);
 			});
 		});
 	}

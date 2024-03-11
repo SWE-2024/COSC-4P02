@@ -4,7 +4,7 @@
 	import { db } from '$lib/firebase/firebase.client';
 	import { onMount } from 'svelte';
 	import { collection, onSnapshot } from 'firebase/firestore';
-	import { authStore } from '$lib/stores/authStore';
+	import { authLoading, authStore } from '$lib/stores/authStore';
 
 	/**
 	 * @var modules Contains module data.
@@ -45,8 +45,19 @@
 		<Content bind:selector {modules} />
 	{/if}
 
-	{#if !$authStore.isLoggedIn}
-		<h2>Log in to see modules</h2>
+	{#if $authLoading}
+		<div class="grid grid-col-1 grid-rows=1 place-items-center w-full h-full">
+			<div class="flex flex-col items-center">
+				<h2 class="text-3xl font-bold">Currently loading, please wait</h2>
+				<span class="loading loading-lg"></span>
+			</div>
+		</div>
+	{:else if !$authStore.isLoggedIn}
+		<div class="grid grid-col-1 grid-rows=1 place-items-center w-full h-full">
+			<div class="flex flex-col items-center">
+				<h2 class="text-3xl font-bold">Please log in to see modules</h2>
+			</div>
+		</div>
 	{/if}
 </div>
 
