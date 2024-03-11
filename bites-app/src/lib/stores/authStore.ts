@@ -5,7 +5,7 @@ import { writable } from "svelte/store";
 
 export const authStore = writable<{
   isLoggedIn: boolean
-  user?: User
+  user?: User | null
 }>({
   isLoggedIn: false,
   user: undefined

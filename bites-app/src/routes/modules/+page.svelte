@@ -21,8 +21,9 @@
 		});
 	});
 
-	let selectedIndex = 0;
-	let selectedItem = 0;
+	let selector = [0, 0];
+	// let selector[0] = 0; // selected module
+	// let selector[1] = 0; // selected item
 </script>
 
 <svelte:head>
@@ -32,9 +33,9 @@
 
 <div class="join join-horizontal w-11/12 m-2 p-2 rounded-box h-[80vh]">
 	{#if modules.length > 0 && $authStore.isLoggedIn}
-		<Sidebar bind:selectedIndex bind:selectedItem {modules} />
+		<Sidebar bind:selector {modules} />
 		<div class="divider divider-horizontal"></div>
-		<Content bind:selectedIndex bind:selectedItem {modules} />
+		<Content bind:selector {modules} />
 	{/if}
 
 	{#if !$authStore.isLoggedIn}

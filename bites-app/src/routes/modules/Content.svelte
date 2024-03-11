@@ -1,22 +1,21 @@
 <script lang="ts">
-	export let selectedIndex: number;
-	export let selectedItem: number;
+	export let selector: number[];
 	export let modules: any;
 </script>
 
 <div class="grid grid-cols-1 grid-rows-12 fill-height container lg:w-2/3 sm:w-1/3">
 	<div class="text-sm breadcrumbs">
 		<ul>
-			<li>{modules[selectedIndex].module_name}</li>
-			<li>{modules[selectedIndex].modules_content[selectedItem].item_name}</li>
+			<li>{modules[selector[0]].module_name}</li>
+			<li>{modules[selector[0]].modules_content[selector[1]].item_name}</li>
 		</ul>
 	</div>
 	<div class="w-full row-span-11 mask-square rounded-box">
 		<iframe
 			class="fill-height w-full h-auto"
-			src="{modules[selectedIndex].modules_content[selectedItem].item_url}"
+			src="{modules[selector[0]].modules_content[selector[1]].item_url}"
 			frameborder="0"
-			title="{modules[selectedIndex].modules_content[selectedItem].item_name}"
+			title="{modules[selector[0]].modules_content[selector[1]].item_name}"
 		></iframe>
 	</div>
 </div>

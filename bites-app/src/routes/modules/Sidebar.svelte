@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ArrowButton from './ArrowButton.svelte';
+
 	interface Item {
 		item_index: number;
 		item_name: string;
@@ -15,20 +16,17 @@
 		index: number;
 	}
 
-	export let selectedIndex: number;
-	export let selectedItem: number;
+	/**
+	 *
+	 */
+	export let selector: number[] = [0, 0];
 	export let modules: Module[]; // Changed this from Any to Interface to allow for filtering
 
 	let searchString = '';
 
-	function changeSelectedModule(index: number) {
-		selectedIndex = index;
-	}
-
-	function changeSelectedItemNumber(itemNumber: number, index: number) {
-		selectedItem = itemNumber;
-		changeSelectedModule(index);
-	}
+	const selectorHandler = (itemidx: number, moduleidx: number) => {
+		selector = [moduleidx, itemidx];
+	};
 
 	function openModule(index: number) {
 		//modules[index].module_open = !modules[index].module_open
@@ -53,7 +51,7 @@
 <div class="menu menu-vertical overflow-y-scroll bg-base-300 rounded-box fill-height">
 	<!-- <div class="drawer w-1/5 bg-base-300"> -->
 	<div class="menu-title space-y-1 text-wrap text-lg">
-		<h3>Software Engineering</h3>
+		<h3 class="text-base-content text-2xl">Software Engineering</h3>
 		<span class="text-xs">{modules.length} Modules</span>
 		<label class="input input-bordered flex input-sm items-center gap-2 bg-base-300"
 			><svg
@@ -79,35 +77,46 @@
 
 	<div class="h-1/3">
 		{#each filteredModules as module}
-			<div class="card">
+			<div class="">
 				<button
-					class="module_title_container"
-					class:selected="{selectedIndex == module.index}"
-					on:click="{() => changeSelectedModule(module.index)}"
+					class="btn col-span-1 rounded-none btn-lg btn-block {selector[0] == module.index
+						? 'border-4 border-b-accent'
+						: 'btn-ghost'}"
+					class:selected="{selector[0] == module.index}"
+					on:click="{() => {
+						// selectorHandler(selector[1], module.index);
+						openModule(module.index);
+					}}"
 				>
-					<div>
-						<h4>{module.module_name}</h4>
-						<p>{module.module_description}</p>
+					<div class="grid grid-cols-2 grid-rows-2 w-full">
+						<p class="text-md col-end-1 text-left">{module.module_name}</p>
+						<button
+							class="btn btn-circle btn-ghost btn-md col-start-3 row-span-2"
+							on:click="{() => {}}"><ArrowButton /></button
+						>
+						<p
+							class="text-sm text-left text-opacity-80 text-base-content row-start-2 col-span-1 row-end-2"
+						>
+							{module.module_description}
+						</p>
 					</div>
-
-					<button
-						class="btn btn-circle btn-ghost btn-md"
-						on:click="{() => openModule(module.index)}"
-					>
-						<ArrowButton />
-					</button>
 				</button>
 				{#if module.module_open}
-					<div class="module_items" class:items_opened="{selectedIndex == module.index}">
+					<div class="flex flex-col" class:items_opened="{selector[0] == module.index}">
 						{#each module.modules_content as { item_index, item_name }}
-							<button on:click="{() => changeSelectedItemNumber(item_index, module.index)}">
+							<button
+								class="btn rounded-none {selector[1] == item_index && selector[0] == module.index
+									? 'btn-primary'
+									: 'btn-ghost'}"
+								on:click="{() => selectorHandler(item_index, module.index)}"
+							>
 								{item_name}
 							</button>
 						{/each}
 					</div>
 				{/if}
 			</div>
-			<div class="divider divider-vertical"></div>
+			<div class="divider divider-vertical my-0"></div>
 		{/each}
 	</div>
 	<!-- {#if filteredModules.length=0}
@@ -142,15 +151,7 @@
 		background: lightsteelblue;
 	}
 
-	/* .container {
-		width: 20%;
-		border-right: 3px rgba(86, 86, 86, 0.534) solid;
-		max-height: 80vh;
-		overflow-y: scroll;
-		overflow-x: hidden;
-	} */
-
-	h3 {
+	/* h3 {
 		font-size: 1.8rem;
 		color: white;
 	}
@@ -175,68 +176,55 @@
 		opacity: 0.7;
 		font-size: 0.75rem;
 		text-align: left;
-	}
+	} */
 
 	/* button {
 		text-align: left;
 	} */
 
-	.course-header {
+	/* .course-header {
 		padding: 1rem 1rem 1rem 1rem;
 		border-bottom: 1px rgb(67, 67, 67) solid;
 		border-radius: 5px;
 		background-color: #646cff;
 		margin-bottom: 0.5rem;
 		margin-right: 0.25rem;
-	}
+	} */
 
-	.module-container {
+	/* .module-container {
 		padding: 0rem 0.5rem 0rem 0rem;
 		margin-left: 0.25rem;
 		border-radius: 5px;
-	}
+	} */
 
-	.module_title_container {
+	/* .module_title_container {
 		display: flex;
 		justify-content: space-between;
 		padding: 1rem 1rem 1rem 0.45rem;
 		cursor: pointer;
 		border: #646cff;
 		width: 100%;
-	}
-
-	.module_title_container:hover {
-		border-left: 3px solid #646cff;
-	}
-
-	.selected {
-		border-left: 3px solid #646cff;
-		background-color: rgb(46, 46, 46);
-	}
-
-	/* .module_opener_button {
-		background-color: azure;
-		padding: 0;
-		margin: 0;
-		aspect-ratio: 1/1;
-		width: 25px;
-		height: 25px;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 	} */
 
-	.module_opener_button img {
+	/* .module_title_container:hover {
+		border-left: 3px solid #646cff;
+	} */
+
+	/* .selected {
+		border-left: 3px solid #646cff;
+		background-color: rgb(46, 46, 46);
+	} */
+
+	/* .module_opener_button img {
 		padding: 0;
 		margin: 0;
 		width: 135%;
 		aspect-ratio: 1/1;
 		rotate: 90deg;
 		transition: 0.2s ease-in-out;
-	}
+	} */
 
-	.module_opened {
+	/* .module_opened {
 		rotate: 180deg !important;
 	}
 
@@ -249,22 +237,22 @@
 		gap: 0.5rem;
 		background-color: transparent;
 		transition: 0.2s ease-in-out;
-	}
-	.module_items button {
+	} */
+	/* .module_items button {
 		margin-right: 2rem;
 		padding: 0.5rem 0.25rem;
 		border: rgb(69, 69, 69) 2px;
 		transition: 0.2s ease-in-out;
 		border-bottom: 2px solid rgb(69, 69, 69);
-	}
+	} */
 
-	.module_items button:hover {
+	/* .module_items button:hover {
 		border-bottom: 3px solid #646cff;
-	}
-	.items_opened {
+	} */
+	/* .items_opened {
 		background-color: rgb(46, 46, 46);
 		border-left: 3px solid #646cff;
-	}
+	} */
 
 	.searchBar {
 		margin-top: 10px;

@@ -23,20 +23,6 @@ export default {
 
   daisyui: {
     themes: [
-      // {
-      //   "brock-dark": {
-      //     "base-100": "#1a1a1a",
-      //     "secondary": "#8c0000",
-      //     "primary": "#AC0000",
-      //     "accent": "#cc0000",
-      //     "neutral": "#383838",
-      //     "info": "#79deff",
-      //     "success": "#00c900",
-      //     "warning": "#e99600",
-      //     "error": "#bc1f49",
-      //   }
-      // },
-      // {
         {
           "brock-dark": {
             "primary": "#aa0000", // base brock color
@@ -49,7 +35,8 @@ export default {
             "warning": "#e99600", // default
             "error": "#bc1f49", // default
           },
-        }
+        },
+        "light",
       ],
   },
 }
