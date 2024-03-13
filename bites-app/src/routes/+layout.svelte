@@ -11,6 +11,7 @@
 	import { authLoading, authStore } from '$lib/stores/authStore';
 	import DarkModeToggle from '../components/DarkModeToggle.svelte';
 	import { themeStore } from '$lib/stores/themeStore';
+	import AccessibilityMenu from '../components/AccessibilityMenu.svelte';
 
 	// wait for DOM mount then set authStore
 	if (browser) {
@@ -35,6 +36,7 @@
 		<DarkModeToggle
 			classname="btn btn-primary btn-circle btn-md my-4 sticky bottom-4 right-4 float-right"
 		/>
+		<AccessibilityMenu />
 		<Footer />
 	</div>
 </html>
