@@ -1,43 +1,39 @@
-<!-- Quiz.svelte -->
-<script>
-    let questions = [
-      { question: 'Test?', options: ['answer', 'answer', 'answer', 'answer'], correctAnswer: 'Paris' },
-      { question: 'Which planet is known as the Red Planet?', options: ['Earth', 'Mars', 'Jupiter', 'Venus'], correctAnswer: 'Mars' },
-    ];
-  
-    let currentQuestion = 0;
-    let selectedOption = '';
-    let score = 0;
-  
-    function checkAnswer() {
-      if (selectedOption === questions[currentQuestion].correctAnswer) {
-        score++;
-      }
-  
-      if (currentQuestion < questions.length - 1) {
-        currentQuestion++;
-        selectedOption = '';
-      } else {
-        alert(`Quiz completed! Your score is ${score}/${questions.length}`);
-      }
+<script>  
+  let questions = [
+    { question: 'Test?', options: ['answer', 'answer', 'answer', 'answer'], correctAnswer: 'Paris' },
+    { question: 'Which planet is known as the Red Planet?', options: ['Earth', 'Mars', 'Jupiter', 'Venus'], correctAnswer: 'Mars' },
+  ];
+
+  let currentQuestion = 0;
+  let selectedOption = '';
+  let score = 0;
+
+  function checkAnswer() {
+    if (selectedOption === questions[currentQuestion].correctAnswer) {
+      score++;
     }
 
-    
-  </script>
-  
-  <style>
-  
+    if (currentQuestion < questions.length - 1) {
+      currentQuestion++;
+      selectedOption = '';
+    } else {
+      alert(`Quiz completed! Your score is ${score}/${questions.length}`);
+    }
+  }
+</script>
+
+<style>
   main {
     display: flex;
-    height: 100vh; 
-    flex-direction: row; 
+    flex-direction: column; /* Changed to column layout */
+    min-height: 100vh; /* Ensure the container takes at least the full height of the viewport */
+    padding-bottom: 50px; /* Adjusted padding for spacing at the bottom */
+    position: relative; /* Relative positioning for absolute positioning of the menu */
   }
 
-  section {   
-    margin-top: 20px; 
-    margin-left: 50px; 
-    text-align: left; 
-    flex-grow: 1; 
+  section {
+    margin: 20px 50px; /* Adjusted margin */
+    text-align: left;
   }
 
   h1 {
@@ -61,25 +57,9 @@
     background-color: #3498db;
     color: white;
   }
-
-  button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #2ecc71;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  button:disabled {
-    background-color: #95a5a6;
-    cursor: not-allowed;
-  }
 </style>
 
 <main>
-
   <section>
     {#if currentQuestion < questions.length}
       <h1>{questions[currentQuestion].question}</h1>
