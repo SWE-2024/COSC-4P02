@@ -1,5 +1,7 @@
 <script lang="ts">
 	import ArrowButton from './ArrowButton.svelte';
+	import SlidesIcon from './SlidesIcon.svelte';
+	import VideoIcon from './VideoIcon.svelte';
 
 	/**
 	 * @interface Item represents a database entry for a subcategory of a module.
@@ -129,7 +131,11 @@
 								: 'btn-ghost'}"
 							on:click="{() => selectorHandler(item_index, module.index)}"
 						>
-							{item_name}
+							{#if item_name == 'item1'}
+								Slides <SlidesIcon />
+							{:else}
+								Video <VideoIcon />
+							{/if}
 						</button>
 					{/each}
 				</div>
