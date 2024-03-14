@@ -59,7 +59,7 @@
 <!-- Using tailwindcss -->
 <style>
 	.container {
-		@apply bg-secondary rounded-box p-6 mx-auto my-6;
+		@apply bg-base-300 rounded-box p-6 mx-auto my-6;
 	}
 
 	.header {

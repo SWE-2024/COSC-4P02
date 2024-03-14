@@ -19,7 +19,7 @@
 			</div>
 		</div>
 
-		<div class="text-center bg-primary p-4">
+		<div class="text-center bg-primary text-neutral-content p-4">
 			<p>© Brock Interactive Training for Engineering Students 2024. All Rights Reserved.</p>
 		</div>
 	</footer>
