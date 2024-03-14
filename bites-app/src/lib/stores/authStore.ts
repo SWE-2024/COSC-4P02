@@ -5,11 +5,13 @@ import { writable } from "svelte/store";
 
 export const authStore = writable<{
   isLoggedIn: boolean
-  user?: User
+  user?: User | null
 }>({
   isLoggedIn: false,
   user: undefined
 });
+
+export const authLoading = writable<boolean>(true)
 
 export const logout = async () => {
   await signOut(auth)

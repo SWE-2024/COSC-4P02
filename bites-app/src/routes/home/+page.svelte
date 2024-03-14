@@ -1,11 +1,11 @@
 <script>
 	import { goto } from '$app/navigation';
-
+  
 	var computerCommonsImg =
 	'https://brocku.ca/brock-news/wp-content/uploads/2020/09/image001.jpg'
 	
 	var test =
-		'https://media.istockphoto.com/id/1139800938/vector/stock-icon-on-white-background-flat-style-financial-market-crash-icon-for-your-web-site.jpg?s=612x612&w=0&k=20&c=ESZIEXtLpygjBHkQzBsDGV7W_N43Ba_mRGxaDEM3QMA=';
+  'https://media.istockphoto.com/id/1139800938/vector/stock-icon-on-white-background-flat-style-financial-market-crash-icon-for-your-web-site.jpg?s=612x612&w=0&k=20&c=ESZIEXtLpygjBHkQzBsDGV7W_N43Ba_mRGxaDEM3QMA=';
 
 	var libraryImg =
 	'https://live.staticflickr.com/3494/4078029168_df7d060636_z.jpg'	
@@ -38,7 +38,8 @@
 		<img src="{computerCommonsImg}" alt="Computer Commons" />
 	</div>
 
-	<button on:click="{onClickHandler}">Get Started</button>
+	<!-- Button - Should bring you to the modules or something -->
+	<button class="btn btn-primary" on:click="{onClickHandler}">Get Started</button>
 </div>
 
 <div class="container">
@@ -64,19 +65,14 @@
 			Software Evolution
 		</p>
 	</div>
-
-	<button on:click="{onClickHandler}">Go to Modules</button>
+  
+	<!-- Button - Should bring you to the modules or something -->
+	<button class="btn btn-primary" on:click="{onClickHandler}">Go to Modules</button>
 </div>
 
 <style>
 	h1 {
 		font-size: 48px;
-	}
-
-	button {
-		background-color: rgb(171, 0, 0);
-		border-radius: 8px;
-		padding: 16px;
 	}
 
 	.container {

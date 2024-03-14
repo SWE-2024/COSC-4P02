@@ -23,12 +23,11 @@ const firebaseConfig = {
 // No idea why, but must check if empty first. Otherwise entire app immediately dies sometimes. 
 if (!firebase.apps.length) {
   app = initializeApp(firebaseConfig)
-  console.log('Firebase initialized')
 } else {
   console.error('Could not initialize firebase, already have a running firebase app.')
   deleteApp(firebase.apps[0])
   app = initializeApp(firebaseConfig)
-  console.log('deleted firebase instance and reinitialized')
+  console.log('Had to delete firebase instance and reinitialize')
 }
 
 export const auth = getAuth(app)

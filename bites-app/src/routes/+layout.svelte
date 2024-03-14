@@ -8,29 +8,38 @@
 	import { onMount } from 'svelte';
 	import { onAuthStateChanged } from 'firebase/auth';
 	import { auth } from '$lib/firebase/firebase.client';
-	import { authStore } from '$lib/stores/authStore';
+	import { authLoading, authStore } from '$lib/stores/authStore';
+	import DarkModeToggle from '../components/DarkModeToggle.svelte';
+	import { themeStore } from '$lib/stores/themeStore';
+	import AccessibilityMenu from '../components/AccessibilityMenu.svelte';
 
 	// wait for DOM mount then set authStore
 	if (browser) {
 		onMount(() => {
-			console.log('Mounted DOM');
 			onAuthStateChanged(auth, async (user) => {
 				$authStore = {
 					isLoggedIn: user != null,
 					user
 				};
+				authLoading.set(false);
 			});
 		});
 	}
 </script>
 
-<div class="app bg-gradient-to-r from-base-100 from-70% to-base-200">
-	<Navbar />
-	<main>
-		<slot />
-	</main>
-	<Footer />
-</div>
+<html lang="en" data-theme="{$themeStore.theme}">
+	<div class="app bg-gradient-to-r from-base-100 from-70% to-base-300">
+		<Navbar />
+		<main>
+			<slot />
+		</main>
+		<DarkModeToggle
+			classname="btn btn-primary btn-circle btn-md my-4 sticky bottom-4 right-4 float-right"
+		/>
+		<AccessibilityMenu />
+		<Footer />
+	</div>
+</html>
 
 <style>
 	.app {
