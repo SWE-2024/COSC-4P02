@@ -1,5 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
+	import { themeStore } from '$lib/stores/themeStore';
 
 	let img1 =
 		'https://media.istockphoto.com/id/1139800938/vector/stock-icon-on-white-background-flat-style-financial-market-crash-icon-for-your-web-site.jpg?s=612x612&w=0&k=20&c=ESZIEXtLpygjBHkQzBsDGV7W_N43Ba_mRGxaDEM3QMA=';
@@ -8,7 +9,7 @@
 	};
 </script>
 
-<div class="container">
+<div class="container {$themeStore.theme == 'light' ? 'container-light' : 'container-dark'}">
 	<h1>Brock Interactive Training for Engineering Students</h1>
 	<div class="content">
 		<p>
@@ -32,7 +33,7 @@
 	<button class="btn btn-primary" on:click="{onClickHandler}">Get Started</button>
 </div>
 
-<div class="container">
+<div class="container {$themeStore.theme == 'light' ? 'container-light' : 'container-dark'}">
 	<h1>Outline of Content</h1>
 	<div class="content">
 		<img src="{img1}" alt="Training Program Image" />
@@ -55,8 +56,15 @@
 		font-size: 48px;
 	}
 
+	.container-light {
+		background-color: rgba(250, 250, 250, 0.55);
+	}
+
+	.container-dark {
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+
 	.container {
-		background-color: rgba(0, 0, 0, 0.2);
 		border-radius: 16px;
 
 		display: flex;
