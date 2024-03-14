@@ -33,10 +33,10 @@
 		<main>
 			<slot />
 		</main>
-		<DarkModeToggle
-			classname="btn btn-primary btn-circle btn-md my-4 sticky bottom-4 right-4 float-right"
-		/>
-		<AccessibilityMenu />
+		<div class="join join-vertical sticky float-right bottom-4 right-4 my-4">
+			<DarkModeToggle classname="btn btn-primary btn-circle btn-md" />
+			<AccessibilityMenu />
+		</div>
 		<Footer />
 	</div>
 </html>

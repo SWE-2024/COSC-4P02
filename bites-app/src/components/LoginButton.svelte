@@ -24,6 +24,13 @@
 	const toggleLoginModal = () => {
 		login_modal_open = !login_modal_open;
 	};
+
+	const onKeyUp = (event: KeyboardEvent) => {
+		// const target = event.target as HTMLInputElement;
+		if (event.code == 'Escape' && login_modal_open) {
+			toggleLoginModal();
+		}
+	};
 </script>
 
 <main>
@@ -76,6 +83,10 @@
 				<img src="{facebook_icon}" alt="Facebook Logo" class="absolute left-11 h-7 w-7" />
 				Login with Facebook
 			</button>
+			<button
+				on:click="{toggleLoginModal}"
+				class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button
+			>
 		</div>
 		<div></div>
 		<form method="dialog" class="modal-backdrop">
@@ -83,6 +94,8 @@
 		</form>
 	</dialog>
 </main>
+
+<svelte:window on:keydown="{onKeyUp}" />
 
 <style>
 </style>
