@@ -24,6 +24,7 @@
 			class="fill-height w-full h-auto"
 			src="{modules[selector[0]].modules_content[selector[1]].item_url}"
 			frameborder="0"
+			allow="fullscreen"
 			title="{modules[selector[0]].modules_content[selector[1]].item_name}"
 		></iframe>
 	</div>
