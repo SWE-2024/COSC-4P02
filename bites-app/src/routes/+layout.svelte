@@ -11,8 +11,7 @@
 	import { authLoading, authStore } from '$lib/stores/authStore';
 	import DarkModeToggle from '../components/DarkModeToggle.svelte';
 	import { themeStore } from '$lib/stores/themeStore';
-	import AccessibilityMenu from '../components/AccessibilityMenu.svelte';
-	import { invalidateAll } from '$app/navigation';
+	import AccessibilityMenu from '../components/AccessibilityMenu/AccessibilityMenu.svelte';
 
 	// wait for DOM mount then set authStore
 	if (browser) {
@@ -31,9 +30,7 @@
 <html lang="en" data-theme="{$themeStore.theme}">
 	<div class="bg-[url('https://www.ouinfo.ca/assets/files/images/1.jpg')]">
 		<div
-			class="app {$themeStore.theme == 'light'
-				? 'background-gradient-light'
-				: 'background-gradient-dark'}"
+			class="app {$themeStore.isLight ? 'background-gradient-light' : 'background-gradient-dark'}"
 		>
 			<div class="">
 				<Navbar />
@@ -55,6 +52,6 @@
 		background-color: rgba(256, 256, 256, 0.6);
 	}
 	.background-gradient-dark {
-		background-color: rgba(0, 0, 0, 0.94);
+		background-color: rgba(0, 0, 0, 0.8);
 	}
 </style>
