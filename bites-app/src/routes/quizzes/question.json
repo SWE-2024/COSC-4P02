@@ -1,0 +1,623 @@
+[
+    {
+        "question": "What does the study of an existing system refer to?",
+        "options": [
+            "Details of DFD",
+            "Feasibility Study",
+            "System Analysis",
+            "System Planning"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following is involved in the system planning and designing phase of the Software Development Life Cycle (SDLC",
+        "options": [
+            "Sizing",
+            "Parallel run",
+            "Specification freeze",
+            "All of the above"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "What does RAD stand for?",
+        "options": [
+            "Rapid Application Document",
+            "Rapid Application Development",
+            "Relative Application Development",
+            "None of the above"
+        ],
+        "answer": 1,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following prototypes does not associated with Prototyping Model?",
+        "options": [
+            "Domain Prototype",
+            "Vertical Prototype",
+            "Horizontal Prototype",
+            "Diagonal Prototype"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "The major drawback of RAD model is __________.",
+        "options": [
+            "It requires highly skilled developers/designers.",
+            "It necessitates customer feedbacks.",
+            "It increases the component reusability.",
+            "Both (a) & (c)"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following does not relate to Evolutionary Process Model?",
+        "options": [
+            "Incremental Model",
+            "Concurrent Development Model",
+            "WINWIN Spiral Model",
+            "All of the above"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "What is the major drawback of the Spiral Model?",
+        "options": [
+            "Higher amount of risk analysis",
+            "Doesn't work well for smaller projects",
+            "Additional functionalities are added later on",
+            "Strong approval and documentation control"
+        ],
+        "answer": 1,
+        "selectedOption": 100
+    },
+    {
+        "question": "Model selection is based on __________.",
+        "options": [
+            "Requirements",
+            "Development team & users",
+            "Project type & associated risk",
+            "All of the above"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following option is correct?",
+        "options": [
+            "The prototyping model facilitates the reusability of components.",
+            "RAD Model facilitates reusability of components",
+            "Both RAD & Prototyping Model facilitates reusability of components",
+            "None"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following models doesn't necessitate defining requirements at the earliest in the lifecycle?",
+        "options": [
+            "RAD & Waterfall",
+            "Prototyping & Waterfall",
+            "Spiral & Prototyping",
+            "Spiral & RAD"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "When the user participation isn't involved, which of the following models will not result in the desired output?",
+        "options": [
+            "Prototyping & Waterfall",
+            "Prototyping & RAD",
+            "Prototyping & Spiral",
+            "RAD & Spiral"
+        ],
+        "answer": 1,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following model will be preferred by a company that is planning to deploy an advanced version of the existing software in the market?",
+        "options": [
+            "Spiral",
+            "Iterative Enhancement",
+            "RAD",
+            "Both (b) and (c)"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following is an example of Black Box and Functional Processing?",
+        "options": [
+            "First Generation Language",
+            "Second Generation Language",
+            "Third Generation Language",
+            "Fourth Generation Language"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "__________ is identified as fourth generation language.",
+        "options": [
+            "Unix shell",
+            "C++",
+            "COBOL",
+            "FORTRAN"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "The productivity of a software engineer can be reduced by using a 4GT.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "answer": 1,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following is the main advantage of deploying a 4GT model for producing small-scale products, programs, and applications?",
+        "options": [
+            "The productivity of software engineers is improved.",
+            "The time required for developing software is reduced.",
+            "CASE tools and code generators help the 4GT model by providing a credible solution to their problems.",
+            "None of the above."
+        ],
+        "answer": 1,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following model has a major downfall to a software development life cycle in terms of the coding phase?",
+        "options": [
+            "4GT Model",
+            "Waterfall Model",
+            "RAD Model",
+            "Spiral Model"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following falls under the category of software products?",
+        "options": [
+            "Firmware, CAD",
+            "Embedded, CAM",
+            "Customized, Generic",
+            "CAD, Embedded"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "Software maintenance costs are expensive in contrast to software development.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following activities of the generic process framework delivers a feedback report?",
+        "options": [
+            "Deployment",
+            "Planning",
+            "Modeling",
+            "Construction"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following refers to internal software equality?",
+        "options": [
+            "Scalability",
+            "Reusability",
+            "Reliability",
+            "Usability"
+        ],
+        "answer": 1,
+        "selectedOption": 100
+    },
+    {
+        "question": "RUP is abbreviated as __________, invented by a division of __________.",
+        "options": [
+            "Rational Unified Process, IBM",
+            "Rational Unified Program, IBM",
+            "Rational Unified Process, Infosys",
+            "Rational Unified Program, Infosys"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "The RUP can be defined based on three main perspectives, i.e., static, dynamic & practice. What is the purpose of static perspective?",
+        "options": [
+            "It recommends some good practices that be included while carrying out the process.",
+            "It displays all the enacted process activities.",
+            "It portrays the phases that the model has entered over a specific time.",
+            "All of the above."
+        ],
+        "answer": 1,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which one of the following activities is not recommended for software processes in software engineering?",
+        "options": [
+            "Software Evolution",
+            "Software Verification",
+            "Software Testing & Validation",
+            "Software designing"
+        ],
+        "answer": 1,
+        "selectedOption": 100
+    },
+    {
+        "question": "The agile software development model is built based on __________.",
+        "options": [
+            "Linear Development",
+            "Incremental Development",
+            "Iterative Development",
+            "Both Incremental and Iterative Development"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "On what basis is plan-driven development different from that of the software development process?",
+        "options": [
+            "Based on the iterations that occurred within the activities.",
+            "Based on the output, which is derived after negotiating in the software development process.",
+            "Based on the interleaved specification, design, testing, and implementation activities.",
+            "All of the above"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following activities is not applicable to agile software development?",
+        "options": [
+            "Producing only the essential work products.",
+            "Utilizing the strategy of incremental product delivery.",
+            "Abolishing the project planning and testing.",
+            "All of the above"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following framework activities are carried out in Adaptive Software Development (ASD",
+        "options": [
+            "Assumption, Association, Learning",
+            "The investigation, Strategy, Coding",
+            "Requirements gathering, Adaptive cycle planning, Iterative development",
+            "All of the above"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "The __________ model helps in representing the system's dynamic behavior.",
+        "options": [
+            "Object Model",
+            "Context Model",
+            "Behavioral Model",
+            "Data Model"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "Model-driven engineering is nothing but a theoretical concept. It can never be transmuted into a working/executable code.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "answer": 1,
+        "selectedOption": 100
+    },
+    {
+        "question": "The __________ and __________ are the two major dimensions encompassed in the Spiral model.",
+        "options": [
+            "Diagonal, Perpendicular",
+            "Perpendicular, Radial",
+            "Angular, diagonal",
+            "Radial, Angular"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following technique is involved in certifying the sustained development of legacy systems?",
+        "options": [
+            "Reengineering",
+            "Forward engineering",
+            "Reverse engineering",
+            "Reverse engineering and Reengineering"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "An erroneous system state that results in an unexpected system behavior is acknowledged as?",
+        "options": [
+            "System failure",
+            "Human error or mistake",
+            "System error",
+            "System fault"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "What is the name of the approach that follows step-by-step instructions for solving a problem?",
+        "options": [
+            "An Algorithm",
+            "A Plan",
+            "A List",
+            "Sequential Structure"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following word correctly summarized the importance of software design?",
+        "options": [
+            "Quality",
+            "Complexity",
+            "Efficiency",
+            "Accuracy"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following methodology results in SA/SD features?",
+        "options": [
+            "Gane and Sarson methodology",
+            "DeMarco and Yourdon methodology",
+            "Constantine and Yourdon methodology",
+            "All of the above"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "__________ is not considered as an activity of Structured Analysis (SA",
+        "options": [
+            "Transformation of a textual problem description into a graphic model",
+            "Functional decomposition",
+            "All the functions represented in the DFD are mapped to a module structure",
+            "d) All of the mentioned"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "What does a directed arc or line signify?",
+        "options": [
+            "Data Flow",
+            "Data Process",
+            "Data Stores",
+            "None of the above"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "What does a data store symbol in the Data Flow Diagram signify?",
+        "options": [
+            "Logical File",
+            "Physical File",
+            "Data Structure",
+            "All of the above"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "__________ is not a direct measure of SE process.",
+        "options": [
+            "Effort",
+            "Cost",
+            "Efficiency",
+            "All of the above"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "What is the main task of project indicators?",
+        "options": [
+            "To evaluate the ongoing project's status and track possible risks.",
+            "To evaluate the ongoing project's status.",
+            "To track potential risks.",
+            "None of the above"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "What is the main intent of project metrics?",
+        "options": [
+            "For strategic purposes",
+            "To minimize the development schedule.",
+            "To evaluate the ongoing project's quality on a daily basis",
+            "To minimize the development schedule and evaluate the ongoing project's quality on a daily basis"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "Name the graphical practice that depicts the meaningful changes that occurred in metrics data.",
+        "options": [
+            "Function point analysis",
+            "Control Chart",
+            "DRE (Defect Removal Efficiency)",
+            "None of the above"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which parameters are essentially used while computing the software development cost?",
+        "options": [
+            "Hardware and Software Costs",
+            "Effort Costs",
+            "Travel and Training Costs",
+            "All of the above"
+        ],
+        "answer": 3,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following is an incorrect activity for the configuration management of a software system?",
+        "options": [
+            "Change management",
+            "System management",
+            "Internship management",
+            "Version management"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "The project planner examines the statement of scope and extracts all-important software functions, which is known as",
+        "options": [
+            "Planning process",
+            "Decomposition",
+            "Association",
+            "All of the mentioned"
+        ],
+        "answer": 1,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following Is not considered as an option for achieving reliable cost and effort estimation?",
+        "options": [
+            "The ability to translate the size estimate into human effort, calendar time, and dollars",
+            "Use relatively simple decomposition techniques to generate project cost and effort estimates.",
+            "Base estimates on similar projects that have already been completed",
+            "Use one or more empirical models for software cost and effort estimation"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following does not complement the decomposition techniques but offers a potential estimation approach for their impersonal growth?",
+        "options": [
+            "Empirical estimation models",
+            "Decomposition techniques",
+            "Automated estimation tools",
+            "Both empirical estimation models and automated estimation tools"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following is not included in the total effort cost?",
+        "options": [
+            "Costs of lunch time food",
+            "Costs of support staff",
+            "Costs of networking and communications",
+            "Costs of air conditioning and lighting in the office space"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "What is developed by utilizing the historical cost function?",
+        "options": [
+            "Parkinson's Law",
+            "Expert judgment",
+            "Algorithmic cost modeling",
+            "Estimation by analogy"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following model has a misconception that systems are built by utilizing reusable components, scripts, and database programs?",
+        "options": [
+            "The reuse model",
+            "An early designed model",
+            "An application-composition model",
+            "A post architecture model"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following is used to predict the effort as a function of LOC or FP?",
+        "options": [
+            "COCOMO",
+            "FP-based estimation",
+            "Both COCOMO and FP-based estimation",
+            "Process-based estimation"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "Once the requirements are stabilized, the basic architecture of the software can be established. Which of the following version of the COCOMO model conforms to the given statement?",
+        "options": [
+            "Application composition model",
+            "Post-architecture-stage model",
+            "Early design stage model",
+            "All of the above"
+        ],
+        "answer": 0,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following threatens the quality and timeliness of the produced software?",
+        "options": [
+            "Business risks",
+            "Potential risks",
+            "Technical risks",
+            "Known risks"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following refers to the systematic attempt, which is implemented to ascertain the threats to any project plan?",
+        "options": [
+            "Performance risk",
+            "Risk identification",
+            "Risk projection",
+            "Support risk"
+        ],
+        "answer": 2,
+        "selectedOption": 100
+    },
+    {
+        "question": "Which of the following standards is used by the aviation industry?",
+        "options": [
+            "CTRADO-172B",
+            "RTCADO-178B",
+            "RTRADO-178B",
+            "CTCADO-178B"
+        ],
+        "answer": 1,
+        "selectedOption": 100
+    },
+    {
+        "question": "Third-Party Certification for software standards is based on __________.",
+        "options": [
+            "Ul 1996, Second Edition",
+            "Ul 1998, Second Edition",
+            "Ul 1992, Second Edition",
+            "UT 1998, Second Edition"
+        ],
+        "answer": 1,
+        "selectedOption": 100
+    }
+]
