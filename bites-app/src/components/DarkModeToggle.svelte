@@ -1,19 +1,5 @@
 <script lang="ts">
-	import { themeStore } from '$lib/stores/themeStore';
-
-	/**
-	 * @handleThemeChange Handler for theme change button.
-	 */
-	const handleThemeChange = () => {
-		switch ($themeStore.theme) {
-			case 'brock-dark':
-				$themeStore = { theme: 'light' };
-				break;
-			case 'light':
-				$themeStore = { theme: 'brock-dark' };
-				break;
-		}
-	};
+	import { handleSwapTheme, themeStore } from '$lib/stores/themeStore';
 
 	/**
 	 * @var classname CSS class for the toggle button.
@@ -22,8 +8,8 @@
 	export let text = '';
 </script>
 
-<button class="{classname}" on:click="{handleThemeChange}">
-	{#if $themeStore.theme == 'brock-dark'}
+<button class="{classname}" on:click="{handleSwapTheme}">
+	{#if !$themeStore.isLight}
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			fill="none"

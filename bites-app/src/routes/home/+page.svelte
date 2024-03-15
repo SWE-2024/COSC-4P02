@@ -9,7 +9,7 @@
 	};
 </script>
 
-<div class="container {$themeStore.theme == 'light' ? 'container-light' : 'container-dark'}">
+<div class="container {$themeStore.isLight ? 'container-light' : 'container-dark'}">
 	<h1>Brock Interactive Training for Engineering Students</h1>
 	<div class="content">
 		<p>
@@ -33,7 +33,7 @@
 	<button class="btn btn-primary" on:click="{onClickHandler}">Get Started</button>
 </div>
 
-<div class="container {$themeStore.theme == 'light' ? 'container-light' : 'container-dark'}">
+<div class="container {$themeStore.isLight ? 'container-light' : 'container-dark'}">
 	<h1>Outline of Content</h1>
 	<div class="content">
 		<img src="{img1}" alt="Training Program Image" />

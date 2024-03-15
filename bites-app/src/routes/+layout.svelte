@@ -1,19 +1,19 @@
 <script lang="ts">
-    // import './styles.css';
-    import '../app.css';
-    import 'tailwindcss/tailwind.css';
-    import Navbar from '../components/Navbar.svelte';
-    import Footer from '../components/Footer.svelte';
-    import { page } from '$app/stores';
-    import { browser } from '$app/environment';
-    import { onMount } from 'svelte';
-    import { onAuthStateChanged } from 'firebase/auth';
-    import { auth } from '$lib/firebase/firebase.client';
-    import { authLoading, authStore } from '$lib/stores/authStore';
-    import DarkModeToggle from '../components/DarkModeToggle.svelte';
-    import { themeStore } from '$lib/stores/themeStore';
-    import AccessibilityMenu from '../components/AccessibilityMenu.svelte';
-    import { invalidateAll } from '$app/navigation';
+
+	// import './styles.css';
+	import '../app.css';
+	import 'tailwindcss/tailwind.css';
+	import Navbar from '../components/Navbar.svelte';
+	import Footer from '../components/Footer.svelte';
+	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
+	import { onAuthStateChanged } from 'firebase/auth';
+	import { auth } from '$lib/firebase/firebase.client';
+	import { authLoading, authStore } from '$lib/stores/authStore';
+	import DarkModeToggle from '../components/DarkModeToggle.svelte';
+	import { themeStore } from '$lib/stores/themeStore';
+	import AccessibilityMenu from '../components/AccessibilityMenu/AccessibilityMenu.svelte';
+
 
     // wait for DOM mount then set authStore
     if (browser) {
@@ -30,34 +30,30 @@
 </script>
 
 <html lang="en" data-theme="{$themeStore.theme}">
-    <div class="bg-[url('https://www.ouinfo.ca/assets/files/images/1.jpg')]">
-        <div
-            class="app {$themeStore.theme == 'light'
-                ? 'background-gradient-light'
-                : 'background-gradient-dark'}"
-        >
-            <div class="">
-                <Navbar />
-                
-                <slot />
-                
-                <div class="join join-vertical sticky float-right bottom-4 right-4 my-4">
-                    <DarkModeToggle classname="btn btn-primary btn-circle btn-md" />
-                    <AccessibilityMenu />
-                </div>
-            </div>
-            {#if $page.route.id !== '/quizzes'}
-                <Footer />
-            {/if}
-        </div>
-    </div>
+	<div class="bg-[url('https://www.ouinfo.ca/assets/files/images/1.jpg')]">
+		<div
+			class="app {$themeStore.isLight ? 'background-gradient-light' : 'background-gradient-dark'}"
+		>
+			<div class="">
+				<Navbar />
+				<main>
+					<slot />
+				</main>
+				<div class="join join-vertical sticky float-right bottom-4 right-4 my-4">
+					<DarkModeToggle classname="btn btn-primary btn-circle btn-md" />
+					<AccessibilityMenu />
+				</div>
+			</div>
+			<Footer />
+		</div>
+	</div>
 </html>
 
 <style>
-    .background-gradient-light {
-        background-color: rgba(256, 256, 256, 0.6);
-    }
-    .background-gradient-dark {
-        background-color: rgba(0, 0, 0, 0.94);
-    }
+	.background-gradient-light {
+		background-color: rgba(256, 256, 256, 0.6);
+	}
+	.background-gradient-dark {
+		background-color: rgba(0, 0, 0, 0.8);
+	}
 </style>
