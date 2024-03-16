@@ -95,7 +95,7 @@
 		{#if !quizComplete}
 			<div class="header">
         <h1 class="text-2xl h1">Quiz Center</h1>
-        <button class="red" on:click="{()=>{toggleLeaderboard()}}">Toggle LeaderBoard</button>
+        <button class="red" on:click="{()=>{toggleLeaderboard()}}">Toggle Leaderboard</button>
       </div>
       
       
