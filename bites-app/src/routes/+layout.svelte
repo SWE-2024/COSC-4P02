@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	// import './styles.css';
 	import '../app.css';
 	import 'tailwindcss/tailwind.css';
@@ -14,19 +13,18 @@
 	import { themeStore } from '$lib/stores/themeStore';
 	import AccessibilityMenu from '../components/AccessibilityMenu/AccessibilityMenu.svelte';
 
-
-    // wait for DOM mount then set authStore
-    if (browser) {
-        onMount(() => {
-            onAuthStateChanged(auth, async (user) => {
-                authStore.set({
-                    isLoggedIn: user != null,
-                    user
-                });
-                authLoading.set(false);
-            });
-        });
-    }
+	// wait for DOM mount then set authStore
+	if (browser) {
+		onMount(() => {
+			onAuthStateChanged(auth, async (user) => {
+				authStore.set({
+					isLoggedIn: user != null,
+					user
+				});
+			});
+			authLoading.set(false);
+		});
+	}
 </script>
 
 <html lang="en" data-theme="{$themeStore.theme}">
