@@ -1,5 +1,6 @@
 <script lang="ts">
-	import ArrowButton from './ArrowButton.svelte';
+	import AddItemButton from './AddItemButton.svelte';
+import ArrowButton from './ArrowButton.svelte';
 	import SlidesIcon from './SlidesIcon.svelte';
 	import VideoIcon from './VideoIcon.svelte';
 
@@ -142,6 +143,8 @@
 			{/if}
 			<div class="divider divider-vertical my-0"></div>
 		{/each}
+		<AddItemButton />
+		<div class="divider divider-vertical my-0"></div>
 	</div>
 </div>
 
