@@ -8,7 +8,7 @@
 	import { onMount } from 'svelte';
 	import { onAuthStateChanged } from 'firebase/auth';
 	import { auth } from '$lib/firebase/firebase.client';
-	import { authLoading, authStore } from '$lib/stores/authStore';
+	import { authLoading, authStore, isAdmin } from '$lib/stores/authStore';
 	import DarkModeToggle from '../components/DarkModeToggle.svelte';
 	import { themeStore } from '$lib/stores/themeStore';
 	import AccessibilityMenu from '../components/AccessibilityMenu/AccessibilityMenu.svelte';
@@ -16,10 +16,17 @@
 	// wait for DOM mount then set authStore
 	if (browser) {
 		onMount(() => {
+			let admin: boolean
 			onAuthStateChanged(auth, async (user) => {
+				try {
+					admin = await isAdmin();
+				} catch (e) {
+					console.error(e);
+				}
 				authStore.set({
 					isLoggedIn: user != null,
-					user
+					user,
+					admin: admin
 				});
 			});
 			authLoading.set(false);

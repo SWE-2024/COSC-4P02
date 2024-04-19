@@ -17,7 +17,7 @@
 </script>
 
 <div>
-  {#if $authStore.isLoggedIn}
+  {#if $authStore.admin}
     <!-- @todo -->
     <button class="btn rounded-none outline-dashed outline-2 btn-lg btn-block btn-neutral {$themeStore.isLight? 'outline-neutral': 'outline-neutral-content'} outline-offset-4"
     on:click="{toggleModal}">
@@ -34,7 +34,7 @@
 </div>
 
 <dialog class="modal" class:modal-open="{modalOpen}">
-  <div class="modal-box w-3/4 max-w-3xl">
+  <div class="modal-box w-11/12 max-w-2xl">
     <h3 class="font-bold text-lg flex">Add a new module</h3>
     <div class="divider"></div>
     <form>
@@ -42,7 +42,7 @@
         <h3 class='text-xl'>Add a powerpoint</h3>
         <div class="flex w-full">
           <input type="file" class="file-input file-input-bordered w-full max-w-md col-start-1 mr-10">
-          <input type="checkbox" class="toggle toggle-lg toggle-success self-center" checked />
+          <input type="checkbox" class="toggle lg:toggle-lg md:toggle-sm toggle-success self-center" checked />
         </div>
 
         <div class="divider"></div>
@@ -53,10 +53,14 @@
             <p>URL</p>
             <input type="text" class="">
           </label>
-          <input type="checkbox" class="toggle toggle-lg toggle-success self-center" checked />
+          <input type="checkbox" class="toggle lg:toggle-lg md:toggle-sm toggle-success self-center" checked />
         </div>
       </div>
     </form>
+    <button
+				on:click="{toggleModal}"
+				class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button
+			>
   </div>
 
   <form method="dialog" class="modal-backdrop">

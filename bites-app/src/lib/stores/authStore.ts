@@ -6,9 +6,11 @@ import { writable } from "svelte/store";
 export const authStore = writable<{
   isLoggedIn: boolean
   user?: User | null
+  admin?: boolean
 }>({
   isLoggedIn: false,
-  user: undefined
+  user: undefined,
+  admin: false
 });
 
 export const authLoading = writable<boolean>(true)
@@ -41,4 +43,13 @@ export const loginWithGoogle = async () => {
 			console.error(e);
 		}
   });
+}
+
+
+export const isAdmin = async () => {
+  const docRef = doc(collection(db, 'users'), auth.currentUser?.uid);
+  const docSnap = await getDoc(docRef);
+  let result: boolean;
+  result = docSnap.data()?.admin;
+  return result;
 }
