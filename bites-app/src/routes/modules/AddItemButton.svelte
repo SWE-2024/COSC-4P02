@@ -1,11 +1,43 @@
 <script lang='ts'>
 	import { authStore } from "$lib/stores/authStore";
 	import { themeStore } from "$lib/stores/themeStore";
+	import NewModuleForm from "./NewModuleForm.svelte";
+  
+  /**
+   * @var fileinputEnabled  whether or not we have selected to add a file to this new module
+   * @var videourlEnabled whether or not we have selected to add a video to this module
+   */
 
-  let modalOpen: boolean = false
+  /**
+   * Form input data
+   */
+  let data: {
+    videoInput: string, 
+    fileInput: string
+  } = {
+    fileInput: '',
+    videoInput: ''
+  }
+
+  let fileinputEnabled: boolean = true;
+  let videourlEnabled: boolean = true;
+
+  let modalOpen: boolean = false;
+
+  /**
+   * Error messages for form.
+   */
+  let error: {
+    fileInput:string,
+    videoInput: string
+  } = {
+    fileInput: '',
+    videoInput: ''
+  };
 
   const toggleModal = () => {
 		modalOpen = !modalOpen;
+    error = { fileInput: '', videoInput: '' }
 	};
 
   const onKeyUp = (event: KeyboardEvent) => {
@@ -14,58 +46,84 @@
 			toggleModal();
 		}
 	};
+
+  
+  /**
+   * Check whether the input string is a videourl
+   * @param url
+   */
+  const validateurl = (url: string = data.videoInput): boolean => {
+    var youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/(watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})$/;
+    return youtubeRegex.test(url)
+  };
+
+  /**
+   * Take the information from the form & upload to firebase.
+   * @todo  
+   */
+  const handleFormSubmit = () => {
+    if (!validateurl() && videourlEnabled) {
+      error.videoInput = '*Please enter a valid youtube video URL.';
+    } else error.videoInput = '';
+    if (data.fileInput.length == 0 && fileinputEnabled) {
+      error.fileInput = '*No file selected.';
+    } else error.fileInput = '';
+
+    if (error.fileInput.length == 0 && error.videoInput.length == 0) {
+      // We have no errors so we can add the stuff to firebase here. 
+      // Vinit your thing here.
+      toggleModal();
+    }
+  };
 </script>
 
-<div>
-  {#if $authStore.admin}
-    <!-- @todo -->
-    <button class="btn rounded-none outline-dashed outline-2 btn-lg btn-block btn-neutral {$themeStore.isLight? 'outline-neutral': 'outline-neutral-content'} outline-offset-4"
-    on:click="{toggleModal}">
-    <div class="grid grid-cols-1 grid-rows-1 w-full">
-      <p class='text-left content-center'>Add New Module</p>
-      <button class='btn btn-circle btn-ghost btn-md col-start-3'>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-        </svg>
-      </button>
-    </div>
+<!-- This is a button for admin view. Only shows up on administrator accounts. -->
+{#if $authStore.admin}
+  <button class="btn rounded-none outline-dashed outline-2 btn-lg btn-block btn-neutral {$themeStore.isLight? 'outline-neutral': 'outline-neutral-content'} outline-offset-4"
+  on:click="{toggleModal}">
+  <div class="grid grid-cols-1 grid-rows-1 w-full">
+    <p class='text-left content-center'>Add New Module</p>
+    <button class='btn btn-circle btn-ghost btn-md col-start-3'>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+      </svg>
     </button>
-  {/if}
-</div>
+  </div>
+  </button>
+{/if}
+
 
 <dialog class="modal" class:modal-open="{modalOpen}">
   <div class="modal-box w-11/12 max-w-2xl">
     <h3 class="font-bold text-lg flex">Add a new module</h3>
     <div class="divider"></div>
-    <form>
-      <div class='grid w-full text-center justify-center columns-1'>
-        <h3 class='text-xl'>Add a powerpoint</h3>
-        <div class="flex w-full">
-          <input type="file" class="file-input file-input-bordered w-full max-w-md col-start-1 mr-10">
-          <input type="checkbox" class="toggle lg:toggle-lg md:toggle-sm toggle-success self-center" checked />
-        </div>
+    
+    <!-- TODO if we have time: change all these binds to a single object containing them all. -->
+    <NewModuleForm
+      bind:data={data}
+      bind:fileinputEnabled={fileinputEnabled}
+      bind:videourlEnabled={videourlEnabled}
+      bind:error={error}
+      />
 
-        <div class="divider"></div>
-
-        <h3 class='text-xl'>Add a video</h3>
-        <div class="flex w-full">
-          <label class='input input-bordered flex items-center gap-2 w-full max-w-md mr-10'>
-            <p>URL</p>
-            <input type="text" class="">
-          </label>
-          <input type="checkbox" class="toggle lg:toggle-lg md:toggle-sm toggle-success self-center" checked />
-        </div>
-      </div>
-    </form>
+    <div class="modal-action">
+      <button class="btn btn-primary float-left" on:click={toggleModal}>
+        Cancel
+      </button>
+      <button
+        class="btn btn-primary float-right"
+        on:click={() => {
+          handleFormSubmit();
+        }}>
+        Add Module
+      </button>
+    </div>
+    <!-- Exit modal button -->
     <button
 				on:click="{toggleModal}"
 				class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button
 			>
   </div>
-
-  <form method="dialog" class="modal-backdrop">
-    <button on:click="{toggleModal}">Close</button>
-  </form>
 </dialog>
 
 <svelte:window on:keydown="{onKeyUp}" />
