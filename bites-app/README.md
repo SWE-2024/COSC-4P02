@@ -24,7 +24,7 @@ gh repo clone SWE-2024/COSC-4P02
 cd bites-app/
 ```
 
-5. Install dependencies with your preferred package manager
+4. Install dependencies with your preferred package manager
 
 ```
 npm i
