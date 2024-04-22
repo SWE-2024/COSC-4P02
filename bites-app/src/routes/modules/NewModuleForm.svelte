@@ -1,11 +1,12 @@
-<script lang='ts'>
+<script lang="ts">
+
   let allowedExtensions = ['.pdf']; // list of file types allowed
 
   export let fileinputEnabled: boolean = true;
   export let videourlEnabled: boolean = true;
   export let data: {
     videoInput: string, 
-    fileInput: string
+    fileInput: File
   }
   export let error: {
     fileInput:string,
@@ -17,8 +18,17 @@
   };
 
   const handleClearFileinput = () => {
-    data.fileInput = '';
+     
   };
+
+  const handleUpload = async (event:any) => {
+    console.log(event.target.files[0])
+    let file = event.target.files[0]
+    // let blob = await fetch(file).then(r => r.blob());
+    // console.log(blob)
+    data.fileInput = file
+
+  }
 
 </script>
 
@@ -30,7 +40,7 @@
     id="fileinput" 
     disabled={!fileinputEnabled}
     accept={allowedExtensions.join(',')}
-    bind:value={data.fileInput}
+    on:input={(event) => {handleUpload(event)} }
     />
   <p class='error-font'>{error.fileInput}</p>
 

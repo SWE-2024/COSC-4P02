@@ -1,8 +1,17 @@
 <script lang='ts'>
 	import { authStore } from "$lib/stores/authStore";
 	import { themeStore } from "$lib/stores/themeStore";
+	import firebase from "firebase/compat/app";
 	import NewModuleForm from "./NewModuleForm.svelte";
+  import { getStorage, ref, uploadBytes, getDownloadURL   } from "firebase/storage";
+  import { setDoc, addDoc, collection, where, onSnapshot, doc } from 'firebase/firestore';
+  import * as fire from '../../lib/firebase/firebase.client';
+
   
+  const storage = getStorage();
+  const db = fire.db;
+	const moduleCollection = collection(db, 'modules');
+
   /**
    * @var fileinputEnabled  whether or not we have selected to add a file to this new module
    * @var videourlEnabled whether or not we have selected to add a video to this module
@@ -13,10 +22,10 @@
    */
   let data: {
     videoInput: string, 
-    fileInput: string
+    fileInput: File 
   } = {
-    fileInput: '',
-    videoInput: ''
+    videoInput : '',
+    fileInput: new File([],'')
   }
 
   let fileinputEnabled: boolean = true;
@@ -47,6 +56,7 @@
 		}
 	};
 
+  export let moduleLength: number;
   
   /**
    * Check whether the input string is a videourl
@@ -54,25 +64,74 @@
    */
   const validateurl = (url: string = data.videoInput): boolean => {
     var youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/(watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})$/;
-    return youtubeRegex.test(url)
+    // return youtubeRegex.test(url)
+    return true
   };
 
   /**
    * Take the information from the form & upload to firebase.
    * @todo  
    */
-  const handleFormSubmit = () => {
+  const handleFormSubmit = async () => {
     if (!validateurl() && videourlEnabled) {
       error.videoInput = '*Please enter a valid youtube video URL.';
     } else error.videoInput = '';
-    if (data.fileInput.length == 0 && fileinputEnabled) {
+    if (data.fileInput.size == 0 && fileinputEnabled) {
       error.fileInput = '*No file selected.';
     } else error.fileInput = '';
 
     if (error.fileInput.length == 0 && error.videoInput.length == 0) {
       // We have no errors so we can add the stuff to firebase here. 
       // Vinit your thing here.
-      toggleModal();
+      console.log(data)
+     
+      let module = {
+        index : moduleLength,
+        module_description:'some desription',
+        module_name:"new_module",
+        moduleOpen:false,
+        modules_content:[{}]
+      }
+
+
+      
+      if(data.videoInput){
+        const storageRef = ref(storage, data.fileInput.name);
+
+        uploadBytes(storageRef, data.fileInput).then((snapshot) => {
+          getDownloadURL(storageRef).then(async (url:string)=> {
+            console.log(url)
+            module.modules_content=[]
+            module.modules_content.push(
+              {
+                "item_index":module.modules_content.length,
+                "item_name":"item1",
+                "item_type":"pdf",
+                "item_url":url
+              }
+            )
+
+            if(data.videoInput != "")
+            {
+              module.modules_content.push(
+                {
+                  "item_index":module.modules_content.length,
+                  "item_name":"item2",
+                  "item_type":"pdf",
+                  "item_url":data.videoInput
+                }
+              )
+            }
+
+            console.log(module)
+
+            let res = await addDoc(moduleCollection, module)
+          })
+        });
+      }
+
+      
+      //toggleModal();
     }
   };
 </script>
