@@ -22,10 +22,14 @@
    */
   let data: {
     videoInput: string, 
-    fileInput: File 
+    fileInput: File,
+    module_name:string,
+    module_description:string 
   } = {
     videoInput : '',
-    fileInput: new File([],'')
+    fileInput: new File([],''),
+    module_name : '',
+    module_description : '',
   }
 
   let fileinputEnabled: boolean = true;
@@ -38,15 +42,20 @@
    */
   let error: {
     fileInput:string,
-    videoInput: string
+    videoInput: string,
+    moduleNameInput:string,
+    moduleDescriptionInput: string
   } = {
     fileInput: '',
-    videoInput: ''
+    videoInput: '',
+    moduleNameInput: '',
+    moduleDescriptionInput: ''
   };
 
   const toggleModal = () => {
 		modalOpen = !modalOpen;
-    error = { fileInput: '', videoInput: '' }
+    error = { fileInput: '', videoInput: '', moduleNameInput: '',
+    moduleDescriptionInput: '' }
 	};
 
   const onKeyUp = (event: KeyboardEvent) => {
@@ -79,6 +88,12 @@
     if (data.fileInput.size == 0 && fileinputEnabled) {
       error.fileInput = '*No file selected.';
     } else error.fileInput = '';
+    if (data.module_name.length == 0) {
+      error.moduleNameInput = 'Please enter module name';
+    } else error.moduleNameInput = '';
+    if (data.module_description.length == 0) {
+      error.moduleDescriptionInput = 'Please enter module description';;
+    } else error.moduleDescriptionInput = '';
 
     if (error.fileInput.length == 0 && error.videoInput.length == 0) {
       // We have no errors so we can add the stuff to firebase here. 
@@ -87,15 +102,15 @@
      
       let module = {
         index : moduleLength,
-        module_description:'some desription',
-        module_name:"new_module",
+        module_description:data.module_description,
+        module_name:data.module_name,
         moduleOpen:false,
         modules_content:[{}]
       }
 
 
       
-      if(data.videoInput){
+      if(data.fileInput){
         const storageRef = ref(storage, data.fileInput.name);
 
         uploadBytes(storageRef, data.fileInput).then((snapshot) => {
@@ -126,12 +141,14 @@
             console.log(module)
 
             let res = await addDoc(moduleCollection, module)
+
+            toggleModal();
           })
         });
       }
 
       
-      //toggleModal();
+      
     }
   };
 </script>
@@ -163,6 +180,7 @@
       bind:fileinputEnabled={fileinputEnabled}
       bind:videourlEnabled={videourlEnabled}
       bind:error={error}
+  
       />
 
     <div class="modal-action">

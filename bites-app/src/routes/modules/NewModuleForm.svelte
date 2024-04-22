@@ -6,11 +6,15 @@
   export let videourlEnabled: boolean = true;
   export let data: {
     videoInput: string, 
-    fileInput: File
+    fileInput: File,
+    module_name:string,
+    module_description:string
   }
   export let error: {
     fileInput:string,
     videoInput: string
+    moduleNameInput:string,
+    moduleDescriptionInput: string
   }
 
   const handleClearURL = () =>{
@@ -33,6 +37,32 @@
 </script>
 
 <div class='flex flex-col w-full'>
+
+  <h3 class='subheading'>Module Name</h3>
+  <label class='url-input self-center'>
+    
+    <input 
+      type="text" 
+      id="modulename" 
+      bind:value={data.module_name}
+      />
+  </label>
+  <p class='error-font'>{error.moduleNameInput}</p>
+  <br>
+  <br>
+  <h3 class='subheading'>Module description</h3>
+  <label class='url-input self-center'>
+    
+    <input 
+      type="text" 
+      id="moduledescription" 
+      bind:value={data.module_description}
+      />
+  </label>
+  <p class='error-font'>{error.moduleDescriptionInput}</p>
+
+  <div class='divider'></div>
+
   <h3 class='subheading'>Add a Slideshow</h3>
   <input
     class="slide-input self-center" 
@@ -59,28 +89,8 @@
   </label>
   <p class='error-font'>{error.videoInput}</p>
 
-  <div class='divider'></div>
-  
-  <div class="flex justify-evenly m-4">
-    <div class='flex flex-col items-center'>
-      <h4 class='text-lg m-2'>Slideshow</h4>
-      <input 
-        type='checkbox' 
-        class='input-toggle'
-        bind:checked="{fileinputEnabled}"
-        on:click="{handleClearFileinput}" 
-        />
-    </div>
-    <div class='flex flex-col items-center'>
-      <h4 class='text-lg m-2'>Video</h4>
-      <input 
-        type='checkbox' 
-        class='input-toggle'
-        bind:checked="{videourlEnabled}"
-        on:click="{handleClearURL}" 
-        />
-    </div>
-  </div>
+
+
 </div>
 
 <style>
