@@ -1,5 +1,5 @@
 <script lang="ts">
-	import AddItemButton from './AddItemButton.svelte';
+import AddItemButton from './AddItemButton.svelte';
 import ArrowButton from './ArrowButton.svelte';
 	import SlidesIcon from './SlidesIcon.svelte';
 	import VideoIcon from './VideoIcon.svelte';
@@ -143,7 +143,7 @@ import ArrowButton from './ArrowButton.svelte';
 			{/if}
 			<div class="divider divider-vertical my-0"></div>
 		{/each}
-		<AddItemButton />
+		<AddItemButton bind:moduleLength ={modules.length} />
 		<div class="divider divider-vertical my-0"></div>
 	</div>
 </div>
