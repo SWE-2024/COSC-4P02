@@ -5,6 +5,7 @@
 	// values
 	let libraryImg = 'https://live.staticflickr.com/3494/4078029168_df7d060636_z.jpg';
 	let computerCommonsImg = 'https://brocku.ca/brock-news/wp-content/uploads/2020/09/image001.jpg';
+	let moduleGif = '../../../src/assets/module.gif';
 
 	const onClickHandler = () => {
 		goto('/modules');
@@ -14,11 +15,11 @@
 <div class="container {$themeStore.isLight ? 'container-light' : 'container-dark'}">
 	<div class="flex items-center justify-center">
 		<div class="logo-container">
-			<img src="src/assets/logo-sm.png" alt="Logo" class="logo w-32 h-auto" />
+			<img src="src/assets/logo-sm.png" alt="Logo" class="logo w-32 h-auto transition-transform hover:scale-105" />
 		</div>
 	</div>
 
-	<h1 class="text-3xl font-semibold text-center mt-4">
+	<h1 class="text-3xl font-semibold text-center my-5">
 		Brock Interactive Training for Engineering Students
 	</h1>
 
@@ -43,10 +44,10 @@
 </div>
 
 <div class="container {$themeStore.isLight ? 'container-light' : 'container-dark'}">
-	<h1 class="text-3xl font-semibold">Outline of Content</h1>
+	<h1 class="text-3xl font-semibold text-center my-5">Outline of Content</h1>
 
 	<div class="content flex justify-between w-full p-5">
-		<img src="{computerCommonsImg}" alt="Fishbowl" class="w-2/5 h-auto p-4" />
+		<img src="{moduleGif}" alt="Fishbowl" class="w-2/5 h-auto p-4 transition-transform hover:scale-105" />
 		<div class="flex-1 text-center">
       <p class="text-lg leading-relaxed">
         i. Software Processes <br /><br />
@@ -105,6 +106,7 @@
 
 	.content p {
 		flex: 1;
+		padding: 16px;
 	}
 
 	.content img {
@@ -112,5 +114,7 @@
 		height: auto; /* Maintain aspect ratio */
 
 		padding: 16px;
+		border-radius: 10%;
+		transition: 0.2 ease-in-out;
 	}
 </style>
