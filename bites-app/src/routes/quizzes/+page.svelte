@@ -251,9 +251,10 @@
 	}
 
 	.selected {
-		background-color: red;
+		background-color: rgba(255, 0, 0,0.2);
+		border: red solid 1px;
 		color: white;
-		font-size: 1.2rem;
+		font-size: 1.15rem;
 	}
 
 	button {
