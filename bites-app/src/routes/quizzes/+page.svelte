@@ -94,9 +94,9 @@
 	{#if $authStore.isLoggedIn}
 		<div class="header">
 			<h1 class="text-2xl font-bold h1">QUIZ CENTER</h1>
-			<button class="red" on:click="{() => {toggleLeaderboard();}}">Toggle Leaderboard</button>
+			<button class="red btn btn-primary" on:click="{() => {toggleLeaderboard();}}">Toggle Leaderboard</button>
 		</div>
-		<hr>
+		<hr class="border-b-accent">
 
 		{#if !quizComplete}
 			<div>
@@ -119,7 +119,7 @@
 					</div>
 				{/each}
 
-				<button class="red text-xl mt-6 submit" on:click="{() => submitQuiz()}">Submit</button>
+				<button class="red btn btn-primary text-xl mt-6 submit" on:click="{() => submitQuiz()}">Submit</button>
 			</div>
 		{/if}
 	{/if}
@@ -274,13 +274,13 @@
 	hr {
 		border: none;
 		height: 2px;
-		background-color:red;
 		margin: 12px 0px 12px 0px;
 	}
 
 	/* For the buttons */
 	.red {
 		background-color: red;
+		font-size: 16px;
 	}
 
 	.red:hover {

@@ -76,6 +76,7 @@
 
 	.container {
 		border-radius: 16px;
+		border-bottom: 1px solid red;
 
 		display: flex;
 		flex-direction: column;
