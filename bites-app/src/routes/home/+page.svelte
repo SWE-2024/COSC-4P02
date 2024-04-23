@@ -44,7 +44,7 @@
 </div>
 
 <div class="container {$themeStore.isLight ? 'container-light' : 'container-dark'}">
-    <h1>Outline of Content</h1>
+    <h1 class="{$textStore.size}">Outline of Content</h1>
     <div class="content">
         <img src="{computerCommonsImg}" alt="Fishbowl" />
             <p class="{$textStore.size}">
