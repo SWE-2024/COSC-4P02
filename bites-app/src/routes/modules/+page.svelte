@@ -20,7 +20,10 @@
 				modules.push(data[i].data());
 			}
 			modules.sort((a: any, b: any) => a.index - b.index);
+		
 		});
+
+		
 	});
 
 	/**

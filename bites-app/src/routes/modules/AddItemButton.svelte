@@ -1,8 +1,17 @@
 <script lang='ts'>
 	import { authStore } from "$lib/stores/authStore";
 	import { themeStore } from "$lib/stores/themeStore";
+	import firebase from "firebase/compat/app";
 	import NewModuleForm from "./NewModuleForm.svelte";
+  import { getStorage, ref, uploadBytes, getDownloadURL   } from "firebase/storage";
+  import { setDoc, addDoc, collection, where, onSnapshot, doc } from 'firebase/firestore';
+  import * as fire from '../../lib/firebase/firebase.client';
+
   
+  const storage = getStorage();
+  const db = fire.db;
+	const moduleCollection = collection(db, 'modules');
+
   /**
    * @var fileinputEnabled  whether or not we have selected to add a file to this new module
    * @var videourlEnabled whether or not we have selected to add a video to this module
@@ -13,10 +22,14 @@
    */
   let data: {
     videoInput: string, 
-    fileInput: string
+    fileInput: File,
+    module_name:string,
+    module_description:string 
   } = {
-    fileInput: '',
-    videoInput: ''
+    videoInput : '',
+    fileInput: new File([],''),
+    module_name : '',
+    module_description : '',
   }
 
   let fileinputEnabled: boolean = true;
@@ -29,15 +42,20 @@
    */
   let error: {
     fileInput:string,
-    videoInput: string
+    videoInput: string,
+    moduleNameInput:string,
+    moduleDescriptionInput: string
   } = {
     fileInput: '',
-    videoInput: ''
+    videoInput: '',
+    moduleNameInput: '',
+    moduleDescriptionInput: ''
   };
 
   const toggleModal = () => {
 		modalOpen = !modalOpen;
-    error = { fileInput: '', videoInput: '' }
+    error = { fileInput: '', videoInput: '', moduleNameInput: '',
+    moduleDescriptionInput: '' }
 	};
 
   const onKeyUp = (event: KeyboardEvent) => {
@@ -47,6 +65,7 @@
 		}
 	};
 
+  export let moduleLength: number;
   
   /**
    * Check whether the input string is a videourl
@@ -54,25 +73,82 @@
    */
   const validateurl = (url: string = data.videoInput): boolean => {
     var youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/(watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})$/;
-    return youtubeRegex.test(url)
+    // return youtubeRegex.test(url)
+    return true
   };
 
   /**
    * Take the information from the form & upload to firebase.
    * @todo  
    */
-  const handleFormSubmit = () => {
+  const handleFormSubmit = async () => {
     if (!validateurl() && videourlEnabled) {
       error.videoInput = '*Please enter a valid youtube video URL.';
     } else error.videoInput = '';
-    if (data.fileInput.length == 0 && fileinputEnabled) {
+    if (data.fileInput.size == 0 && fileinputEnabled) {
       error.fileInput = '*No file selected.';
     } else error.fileInput = '';
+    if (data.module_name.length == 0) {
+      error.moduleNameInput = 'Please enter module name';
+    } else error.moduleNameInput = '';
+    if (data.module_description.length == 0) {
+      error.moduleDescriptionInput = 'Please enter module description';;
+    } else error.moduleDescriptionInput = '';
 
     if (error.fileInput.length == 0 && error.videoInput.length == 0) {
       // We have no errors so we can add the stuff to firebase here. 
       // Vinit your thing here.
-      toggleModal();
+      console.log(data)
+     
+      let module = {
+        index : moduleLength,
+        module_description:data.module_description,
+        module_name:data.module_name,
+        moduleOpen:false,
+        modules_content:[{}]
+      }
+
+
+      
+      if(data.fileInput){
+        const storageRef = ref(storage, data.fileInput.name);
+
+        uploadBytes(storageRef, data.fileInput).then((snapshot) => {
+          getDownloadURL(storageRef).then(async (url:string)=> {
+            console.log(url)
+            module.modules_content=[]
+            module.modules_content.push(
+              {
+                "item_index":module.modules_content.length,
+                "item_name":"item1",
+                "item_type":"pdf",
+                "item_url":url
+              }
+            )
+
+            if(data.videoInput != "")
+            {
+              module.modules_content.push(
+                {
+                  "item_index":module.modules_content.length,
+                  "item_name":"item2",
+                  "item_type":"pdf",
+                  "item_url":data.videoInput
+                }
+              )
+            }
+
+            console.log(module)
+
+            let res = await addDoc(moduleCollection, module)
+
+            toggleModal();
+          })
+        });
+      }
+
+      
+      
     }
   };
 </script>
@@ -104,6 +180,7 @@
       bind:fileinputEnabled={fileinputEnabled}
       bind:videourlEnabled={videourlEnabled}
       bind:error={error}
+  
       />
 
     <div class="modal-action">
