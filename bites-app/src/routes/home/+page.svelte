@@ -12,15 +12,17 @@
 </script>
 
 <div class="container {$themeStore.isLight ? 'container-light' : 'container-dark'}">
-	<div class="flex items-center justify-center mb-4">
+	<div class="flex items-center justify-center">
 		<div class="logo-container">
 			<img src="src/assets/logo-sm.png" alt="Logo" class="logo w-32 h-auto" />
 		</div>
 	</div>
 
+	<h1 class="text-3xl font-semibold text-center mt-4">
+		Brock Interactive Training for Engineering Students
+	</h1>
 
-	<h1 class="font-semibold">Brock Interactive Training for Engineering Students</h1>
-	<div class="flex justify-between w-full p-5">
+	<div class="content flex justify-between w-full p-5">
 		<p>
 			The field of software engineering has developed greatly in recent decades, and as such there
 			is a growing need for supporting tools to assist students and educators in training new
@@ -35,35 +37,43 @@
 			BITES aims to create an immersive and adaptive learning environment for software engineering and
 			other related courses, enhancing student understanding and performance.
 		</p>
+
 		<img src="{libraryImg}" alt="Library" />
 	</div>
-
-	<!-- Button - Should bring you to the modules or something -->
-	<button class="btn btn-primary" on:click="{onClickHandler}">Get Started</button>
 </div>
 
 <div class="container {$themeStore.isLight ? 'container-light' : 'container-dark'}">
-	<h1 class="font-semibold">Outline of Content</h1>
-	<div class="content">
-		<img src="{computerCommonsImg}" alt="Fishbowl" />
-		<p>
-			i. Software Processes <br /><br />
-			ii. Requirements Engineering <br /><br />
-			iii. Systems Modeling <br /><br />
-			iv. Software Architectural Design <br /><br />
-			v. Implementation Methods <br /><br />
-			vi. Software Testing <br /><br />
-			vii. Software Evolution
-		</p>
-	</div>
+	<h1 class="text-3xl font-semibold">Outline of Content</h1>
 
+	<div class="content flex justify-between w-full p-5">
+		<img src="{computerCommonsImg}" alt="Fishbowl" class="w-2/5 h-auto p-4" />
+		<div class="flex-1 text-center">
+      <p class="text-lg leading-relaxed">
+        i. Software Processes <br /><br />
+        ii. Requirements Engineering <br /><br />
+        iii. Systems Modeling <br /><br />
+        iv. Software Architectural Design <br /><br />
+        v. Implementation Methods <br /><br />
+        vi. Software Testing <br /><br />
+        vii. Software Evolution
+      </p>
+    </div>
+	</div>
 	<!-- Button - Should bring you to the modules or something -->
-	<button class="btn btn-primary" on:click="{onClickHandler}">Go to Modules</button>
+	<button class="btn btn-primary m-6" on:click="{onClickHandler}">Go to Modules</button>
 </div>
 
 <style>
 	h1 {
-		font-size: 48px;
+		font-size: 44px;
+	}
+
+	p {
+		font-size: 19px;
+	}
+
+	button {
+		font-size: 16px;
 	}
 
 	.container-light {
@@ -89,23 +99,18 @@
 
 	.content {
 		display: flex;
-
-		/* Divide the space evenly between items */
-		justify-content: space-between; 
-		width: 100%; /* Ensure content takes up full width of container */
-		padding: 20px; /* Add padding for spacing */
+		align-items: center; /* Vertical alignment; Helps make the images stay to their natural aspect ratio */
+		justify-content: center;
 	}
 
 	.content p {
-		flex: 1; /* Each item takes up equal space */
-		margin: 0; /* Remove default margins */
+		flex: 1;
 	}
 
 	.content img {
-		flex: 1; /* Each item takes up equal space */
 		max-width: 40%; /* Ensure image does not exceed container width */
 		height: auto; /* Maintain aspect ratio */
+
 		padding: 16px;
-		/* margin-left: 20px; Adjust as needed */
 	}
 </style>
