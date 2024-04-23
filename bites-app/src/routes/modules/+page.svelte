@@ -55,7 +55,7 @@
 	{:else if !$authStore.isLoggedIn}
 		<div class="grid grid-col-1 grid-rows=1 place-items-center w-full h-full">
 			<div class="flex flex-col items-center">
-				<h2 class="text-3xl font-bold">Please log in to see modules</h2>
+				<h2 class="text-3xl font-bold">Please log in to see Modules</h2>
 			</div>
 		</div>
 	{/if}
