@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import LoginButton from './LoginButton.svelte';
+  import { textStore } from "$lib/stores/textStore";
 </script>
 
 <div class="flex justify-center">
 	<div class="menu menu-vertical lg:menu-horizontal bg-base-300 rounded-box">
-		<a href="./home" class="btn {$page.route.id == '/home' ? 'btn-outline' : 'btn-ghost'} text-lg">
+		<a href="./home" class="btn {$page.route.id == '/home' ? 'btn-outline' : 'btn-ghost'} {$textStore.size}">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
@@ -25,7 +26,7 @@
 		<div class="divider divider-horizontal"></div>
 		<a
 			href="./modules"
-			class="btn {$page.route.id == '/modules' ? 'btn-outline' : 'btn-ghost'} text-lg"
+			class="btn {$page.route.id == '/modules' ? 'btn-outline' : 'btn-ghost'} {$textStore.size}"
 			><svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
@@ -45,7 +46,7 @@
 		<div class="divider divider-horizontal"></div>
 		<a
 			href="./quizzes"
-			class="btn {$page.route.id == '/quizzes' ? 'btn-outline' : 'btn-ghost'} text-lg"
+			class="btn {$page.route.id == '/quizzes' ? 'btn-outline' : 'btn-ghost'} {$textStore.size}"
 			><svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
@@ -65,7 +66,7 @@
 		<div class="divider divider-horizontal"></div>
 		<a
 			href="./libraries"
-			class="btn {$page.route.id == '/libraries' ? 'btn-outline' : 'btn-ghost'} text-lg"
+			class="btn {$page.route.id == '/libraries' ? 'btn-outline' : 'btn-ghost'} {$textStore.size}"
 			><svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"

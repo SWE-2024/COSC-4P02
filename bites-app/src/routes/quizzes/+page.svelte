@@ -5,6 +5,7 @@
 	import importQuestions from './question.json';
 	import { setDoc, addDoc, collection, where, onSnapshot, doc } from 'firebase/firestore';
 	import * as fire from '../../lib/firebase/firebase.client';
+  import { textStore } from "$lib/stores/textStore";
 
 	let quizComplete: boolean = false;
 	let score = 0;
@@ -95,7 +96,7 @@
 		{#if !quizComplete}
 			<div class="header">
         <h1 class="text-2xl h1">Quiz Center</h1>
-        <button class="red" on:click="{()=>{toggleLeaderboard()}}">Toggle Leaderboard</button>
+        <button class="red {$textStore.size}" on:click="{()=>{toggleLeaderboard()}}">Toggle Leaderboard</button>
       </div>
       
       
@@ -103,14 +104,15 @@
 				{#each questions as q, questionIndex}
 					<div class="mt-7 rounded-md bg-base-300 p-6 border-b-accent">
 						<div class="question-header">
-							<div class="questionIndex">
+							<div class="questionIndex {$textStore.size}">
 								{questionIndex + 1}
 							</div>
-							<p>{q.question}</p>
+							<p class="{$textStore.size}">{q.question}</p>
 						</div>
 						<ul>
 							{#each q.options as option, answerIndex}
 								<li
+                  class="{$textStore.size}"
 									on:click="{() => selectAnswer(questionIndex, answerIndex)}"
 									class:selected="{q.selectedOption == answerIndex}"
 								>
@@ -120,24 +122,28 @@
 						</ul>
 					</div>
 				{/each}
-
-				<button class="red text-xl mt-6 submit" on:click="{() => submitQuiz()}">Submit</button>
+        
+        <div class="flex justify-center item-center">
+          <button class="red mt-6 submit {$textStore.size}" on:click="{() => submitQuiz()}">Submit</button>
+        </div>
 			</div>
 		{/if}
 	{/if}
 
 	{#if !$authStore.isLoggedIn}
+  <div class="join join-horizontal w-11/12 m-2 p-2 rounded-box h-[76.3vh]">
 		<div class="grid grid-col-1 grid-rows=1 place-items-center w-full h-full">
 			<div class="flex flex-col items-center">
-				<h2 class="text-3xl font-bold">Please log in to see modules</h2>
+				<h2 class="text-3xl font-bold">Please log in to see the quizzes</h2>
 			</div>
 		</div>
+  </div>
 	{/if}
 
 	{#if quizComplete}
   <div class="header">
         <h1 class="text-2xl h1">Quiz Center</h1>
-        <button class="red" on:click="{()=>{toggleLeaderboard()}}">Toggle Leaderboard</button>
+        <button class="red {$textStore.size}" on:click="{()=>{toggleLeaderboard()}}">Toggle Leaderboard</button>
       </div>
   <div class="auto-page">
     <div class="text-2xl">
@@ -154,11 +160,11 @@
 			<tbody>
 				{#each leaderBoardData as data}
 					<tr class="hover:bg-base-200">
-						<td contenteditable="false" class="text-xl user-name">
+						<td contenteditable="false" class="user-name {$textStore.size}">
               <img src="{data.user_photo}" class="user-photo">
               {data.user_name}
             </td>
-						<td contenteditable="false"> <span class="text-xl"> {data.score} </span>/ 10</td>
+						<td contenteditable="false"> <span class="{$textStore.size}"> {data.score} </span>/ 10</td>
 					</tr>
 				{/each}
 			</tbody>

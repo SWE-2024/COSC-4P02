@@ -1,6 +1,7 @@
 <script lang="ts">
 	import DarkModeToggle from '../DarkModeToggle.svelte';
 	import AccessibilityThemeSelect from './AccessibilityThemeSelect.svelte';
+  import { textStore, changeTextSizeHandler } from "$lib/stores/textStore";
 
 	/**
 	 * @var {boolean} accessibilityMenuOpen boolean representing whether the modal is open or not.
@@ -32,13 +33,15 @@
 	 */
 	const handleFontChange = () => {
 		let newSize = fontSize;
-		document.body.style.fontSize = newSize + 'px';
+    changeTextSizeHandler(Number(newSize));
+		// document.body.style.fontSize = newSize + 'px';
 	};
 
 	/**
 	 * @todo shouldn't need this variable probably I think in the future.
 	 */
-	let fontSize = '16';
+  // Default
+	let fontSize = '3';
 </script>
 
 <dialog class="modal" class:modal-open="{accessibilityMenuOpen}">
@@ -49,10 +52,10 @@
 			<input
 				class="range"
 				type="range"
-				min="12"
-				max="20"
+				min="1"
+				max="5"
 				bind:value="{fontSize}"
-				step="2"
+				step="1"
 				on:change="{handleFontChange}"
 			/>
 			<div class="w-full flex justify-between text-xs mb-4">

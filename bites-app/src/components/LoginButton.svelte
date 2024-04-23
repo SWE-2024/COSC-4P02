@@ -5,6 +5,8 @@
 	import facebook_icon from '$lib/images/icon-facebook.svg';
 	import apple_icon from '$lib/images/icon-apple.svg';
 
+  import { textStore } from "$lib/stores/textStore";
+
 	let login_modal_open = false;
 
 	// console.log($authStore.user)
@@ -37,15 +39,15 @@
 	{#if $authLoading}
 		<div class="flex">
 			<span class="loading loading-lg"></span>
-			<button class="btn btn-ghost text-lg btn-disabled">Loading</button>
+			<button class="btn btn-ghost btn-disabled {$textStore.size}">Loading</button>
 		</div>
 	{:else if $authStore.isLoggedIn}
-		<button class="btn text-lg btn-ghost" on:click="{logoutHandler}">
+		<button class="btn {$textStore.size} btn-ghost" on:click="{logoutHandler}">
 			<img src="{$authStore.user?.photoURL}" alt="" class="w-10 rounded-full" />
 			Log out
 		</button>
 	{:else}
-		<button class="btn text-lg btn-ghost" on:click="{toggleLoginModal}"
+		<button class="btn btn-ghost {$textStore.size}" on:click="{toggleLoginModal}"
 			><svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
@@ -66,20 +68,20 @@
 
 	<dialog class="modal" class:modal-open="{login_modal_open}">
 		<div class="modal-box join join-vertical">
-			<h3 class="font-bold text-lg flex">Select a login provider</h3>
+			<h3 class="font-bold flex {$textStore.size}">Select a login provider</h3>
 			<div class="divider"></div>
 			<button
-				class="btn btn-lg bg-[color:white] text-[color:black] mb-3"
-				on:click="{googleLoginHandler}"
+				class="btn btn-lg bg-[color:white] text-[color:black] mb-3 {$textStore.size}"
+				on:click="{googleLoginHandler}" 
 			>
 				<img src="{google_icon}" alt="Google Logo" class="absolute left-11 h-8 w-8" />
 				Login with Google
 			</button>
-			<button class="btn btn-lg bg-[color:black] mb-3">
+			<button class="btn btn-lg bg-[color:black] mb-3 {$textStore.size}">
 				<img src="{apple_icon}" alt="Apple Logo" class="absolute left-10 h-8 w-8" />
 				Login with Apple
 			</button>
-			<button class="btn btn-lg bg-[color:#1778f2] text-[color:white]">
+			<button class="btn btn-lg bg-[color:#1778f2] text-[color:white] {$textStore.size}">
 				<img src="{facebook_icon}" alt="Facebook Logo" class="absolute left-11 h-7 w-7" />
 				Login with Facebook
 			</button>

@@ -1,13 +1,14 @@
 <script lang="ts">
     export let columns: any;
     export let libraryTable: any;
+    import { textStore } from "$lib/stores/textStore";
 </script>
 
 <table class="table table-xl">
     <thead>
         <tr class="">
             {#each columns as column}
-                <th class="text-center">{column}</th>
+                <th class="text-center {$textStore.size}">{column}</th>
             {/each}
         </tr>
     </thead>
@@ -19,11 +20,11 @@
         <td contenteditable="false" bind:innerHTML={cell} />
         {/each}
         -->
-                <td contenteditable="false" class="w-[23%]" bind:innerHTML="{entry.title}"></td>
-                <td contenteditable="false" class="w-[38%]" bind:innerHTML="{entry.description}"></td>
+                <td contenteditable="false" class="w-[23%] {$textStore.size}" bind:innerHTML="{entry.title}"></td>
+                <td contenteditable="false" class="w-[38%] {$textStore.size}" bind:innerHTML="{entry.description}"></td>
                 <td>
                     <a
-                        class="link link-hover w-[38%]"
+                        class="link link-hover w-[38%] {$textStore.size}"
                         href="{entry.link}"
                         target="”_blank”"
                         rel="noopener noreferrer"

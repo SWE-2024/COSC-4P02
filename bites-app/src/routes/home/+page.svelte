@@ -1,6 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { themeStore } from '$lib/stores/themeStore';
+  import { textStore } from "$lib/stores/textStore";
 
 	let img1 = 'https://media.istockphoto.com/id/1139800938/vector/stock-icon-on-white-background-flat-style-financial-market-crash-icon-for-your-web-site.jpg?s=612x612&w=0&k=20&c=ESZIEXtLpygjBHkQzBsDGV7W_N43Ba_mRGxaDEM3QMA=';
 	
@@ -16,12 +17,12 @@
 <div class="container {$themeStore.isLight ? 'container-light' : 'container-dark'}">
     <div class="flex items-center justify-center mb-4"> 
         <div class="logo-container">
-            <img src="src/assets/logo.png" alt="Logo" class="logo w-32 h-auto">
+            <!-- <img src="src/assets/logo.png" alt="Logo" class="logo w-32 h-auto"> -->
         </div>
     </div>
-    <h1>Brock Interactive Training for Engineering Students</h1>
+    <h1 class="text-4xl">Brock Interactive Training for Engineering Students</h1>
     <div class="flex justify-between w-full p-5">
-        <p class="mr-4">
+        <p class="mr-4 {$textStore.size}">
             The field of software engineering has developed greatly in recent decades, and as such there
             is a growing need for supporting tools to assist students and educators in training new
             software engineers. User-friendly applications improve the process of education are a constant
@@ -39,14 +40,14 @@
     </div>
 
 	<!-- Button - Should bring you to the modules or something -->
-	<button class="btn btn-primary" on:click="{onClickHandler}">Get Started</button>
+	<button class="btn btn-primary {$textStore.size}" on:click="{onClickHandler}">Get Started</button>
 </div>
 
 <div class="container {$themeStore.isLight ? 'container-light' : 'container-dark'}">
     <h1>Outline of Content</h1>
     <div class="content">
         <img src="{computerCommonsImg}" alt="Fishbowl" />
-            <p>
+            <p class="{$textStore.size}">
                 <br>
                 Introduction Module <br><br>
                 Software Processes <br><br>
@@ -60,14 +61,10 @@
     </div>
 
     <!-- Button - Should bring you to the modules or something -->
-    <button class="btn btn-primary" on:click="{onClickHandler}">Go to Modules</button>
+    <button class="btn btn-primary {$textStore.size}" on:click="{onClickHandler}">Go to Modules</button>
 </div>
 
 <style>
-	h1 {
-		font-size: 48px;
-	}
-
 	.container-light {
 		background-color: rgba(250, 250, 250, 0.55);
 	}

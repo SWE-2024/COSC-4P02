@@ -1,8 +1,9 @@
 <script>
+  import { textStore } from "$lib/stores/textStore";
 </script>
 
 <main class="bottom-0 w-full">
-	<footer class="bg-base-300 border-t-2 border-primary">
+	<footer class="bg-base-300 border-t-2 border-primary {$textStore.size}">
 		<div class="flex justify-center p-4">
 			<ul class="column px-16">
 				<li class="font-bold">Site Links</li>

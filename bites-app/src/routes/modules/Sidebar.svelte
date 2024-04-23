@@ -1,8 +1,9 @@
 <script lang="ts">
 	import AddItemButton from './AddItemButton.svelte';
-import ArrowButton from './ArrowButton.svelte';
+  import ArrowButton from './ArrowButton.svelte';
 	import SlidesIcon from './SlidesIcon.svelte';
 	import VideoIcon from './VideoIcon.svelte';
+  import { textStore } from "$lib/stores/textStore";
 
 	/**
 	 * @interface Item represents a database entry for a subcategory of a module.
@@ -80,8 +81,8 @@ import ArrowButton from './ArrowButton.svelte';
 <div class="menu menu-vertical overflow-y-scroll bg-base-300 rounded-box fill-height">
 	<!-- <div class="drawer w-1/5 bg-base-300"> -->
 	<div class="menu-title space-y-1 text-wrap text-lg">
-		<h3 class="text-base-content text-2xl">Software Engineering</h3>
-		<span class="text-xs">{modules.length} Modules</span>
+		<h3 class="text-base-content {$textStore.size}">Software Engineering</h3>
+		<span class="{$textStore.size}">{modules.length} Modules</span>
 		<label class="input input-bordered flex input-sm items-center gap-2 bg-base-300"
 			><svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +95,7 @@ import ArrowButton from './ArrowButton.svelte';
 					clip-rule="evenodd"
 				></path></svg
 			>
-			<input type="text" class="grow" placeholder="Search modules" bind:value="{searchString}" />
+			<input type="text" class="grow {$textStore.size}" placeholder="Search modules" bind:value="{searchString}" />
 		</label>
 	</div>
 
@@ -111,13 +112,13 @@ import ArrowButton from './ArrowButton.svelte';
 				}}"
 			>
 				<div class="grid grid-cols-2 grid-rows-2 w-full">
-					<p class="text-md col-end-1 text-left">{module.module_name}</p>
+					<p class="col-end-1 text-left">{module.module_name}</p>
 					<button
 						class="btn btn-circle btn-ghost btn-md col-start-3 row-span-2"
 						on:click="{() => {}}"><ArrowButton /></button
 					>
 					<p
-						class="text-sm text-left text-opacity-80 text-base-content row-start-2 col-span-1 row-end-2"
+						class="text-left text-opacity-80 text-base-content row-start-2 col-span-1 row-end-2"
 					>
 						{module.module_description}
 					</p>
