@@ -1,4 +1,3 @@
-
 <script>
 	import { goto } from '$app/navigation';
 	import { themeStore } from '$lib/stores/themeStore';
@@ -49,6 +48,7 @@
         <img src="{computerCommonsImg}" alt="Fishbowl" />
             <p>
                 <br>
+
                 Introduction Module <br><br>
                 Software Processes <br><br>
                 Requirements Engineering <br><br>
@@ -57,6 +57,7 @@
                 Implementation Methods <br><br>
                 Software Testing <br><br>
                 Software Evolution
+
             </p>  
     </div>
 
