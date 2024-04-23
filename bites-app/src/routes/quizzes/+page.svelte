@@ -6,7 +6,7 @@
 	import { setDoc, addDoc, collection, where, onSnapshot, doc } from 'firebase/firestore';
 	import * as fire from '../../lib/firebase/firebase.client';
 
-	let quizComplete: boolean = false;
+	let viewLeaderboard: boolean = false;
 	let score = 0;
 	let questions: any = [];
 
@@ -76,7 +76,7 @@
 			let res = await addDoc(quizLeaderBoard, leaderBoardEntry);
 			// console.log(res);
 		}
-		quizComplete = true;
+		viewLeaderboard = true;
 		window.scrollTo(0, 0);
 	}
 
@@ -86,7 +86,7 @@
 	}
 
 	function toggleLeaderboard() {
-		quizComplete = !quizComplete;
+		viewLeaderboard = !viewLeaderboard;
 	}
 </script>
 
@@ -103,40 +103,37 @@
 		</div>
 		<div class="divider divide-primary"></div>
 
-		{#if !quizComplete}
-			<div
-				class="flex flex-col items-center rounded-md
+		<div
+			class="flex flex-col items-center rounded-md
 			"
-			>
-				{#each questions as q, questionIndex}
-					<div class="card mt-8 bg-neutral p-4 w-11/12 max-w-6xl">
-						<div class="card-title">
-							<div class="badge text-nowrap content-center badge-primary h-8 m-2">
-								<p class="lg:text-lg md:text-md">Question {questionIndex + 1}</p>
-							</div>
-						</div>
-						<p class="ms-4 content-center text-neutral-content">{q.question}</p>
-						<!-- Displays each individual answer/option -->
-						<div class="card-body">
-							{#each q.options as option, answerIndex}
-								<button
-									class="btn"
-									on:click="{() => selectAnswer(questionIndex, answerIndex)}"
-									class:selected="{q.selectedOption == answerIndex}"
-								>
-									{option}
-								</button>
-							{/each}
+		>
+			{#each questions as q, questionIndex}
+				<div class="card mt-8 bg-neutral p-4 w-11/12 max-w-6xl">
+					<div class="card-title">
+						<div class="badge text-nowrap content-center badge-primary h-8 m-2">
+							<p class="lg:text-lg md:text-md">Question {questionIndex + 1}</p>
 						</div>
 					</div>
-				{/each}
+					<p class="ms-4 content-center text-neutral-content">{q.question}</p>
+					<!-- Displays each individual answer/option -->
+					<div class="card-body">
+						{#each q.options as option, answerIndex}
+							<button
+								class="btn"
+								on:click="{() => selectAnswer(questionIndex, answerIndex)}"
+								class:selected="{q.selectedOption == answerIndex}"
+							>
+								{option}
+							</button>
+						{/each}
+					</div>
+				</div>
+			{/each}
 
-				<button
-					class="btn btn-accent w-1/2 min-w-fit max-w-6xl my-8"
-					on:click="{() => submitQuiz()}">Submit</button
-				>
-			</div>
-		{/if}
+			<button class="btn btn-accent w-1/2 min-w-fit max-w-6xl my-8" on:click="{() => submitQuiz()}"
+				>Submit</button
+			>
+		</div>
 	{/if}
 
 	{#if $authLoading}
@@ -153,8 +150,15 @@
 			<h1 class="text-2xl">Please Log in to view quizzes.</h1>
 		</div>
 	{/if}
+</div>
 
-	{#if quizComplete}
+<dialog class="modal" class:modal-open="{viewLeaderboard}">
+	<div class="modal-box w-11/12 max-w-4xl">
+		<button
+			on:click="{toggleLeaderboard}"
+			class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button
+		>
+
 		<div class="auto-page">
 			<div class="text-2xl">
 				<span class="font-semibold">Current Score</span>: {score}
@@ -180,8 +184,8 @@
 				</tbody>
 			</table>
 		</div>
-	{/if}
-</div>
+	</div>
+</dialog>
 
 <style>
 	.header {
