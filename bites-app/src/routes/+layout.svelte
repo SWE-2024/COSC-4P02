@@ -16,7 +16,7 @@
 	// wait for DOM mount then set authStore
 	if (browser) {
 		onMount(() => {
-			let admin: boolean
+			let admin: boolean;
 			onAuthStateChanged(auth, async (user) => {
 				try {
 					admin = await isAdmin();

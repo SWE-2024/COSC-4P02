@@ -7,8 +7,6 @@
 
 	let login_modal_open = false;
 
-	// console.log($authStore.user)
-
 	authStore.subscribe((storedUser) => ({ user: storedUser }));
 
 	const googleLoginHandler = () => {
