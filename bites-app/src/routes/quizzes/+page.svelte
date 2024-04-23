@@ -61,7 +61,7 @@
 
 		let leaderBoardEntry = {
 			score: score,
-      user_photo: $authStore.user?.photoURL,
+			user_photo: $authStore.user?.photoURL,
 			user_id: $authStore.user?.uid,
 			user_name: $authStore.user?.displayName
 		};
@@ -77,7 +77,7 @@
 			// console.log(res);
 		}
 		quizComplete = true;
-    window.scrollTo(0, 0);
+		window.scrollTo(0, 0);
 	}
 
 	function selectAnswer(questionIndex: number, answerIndex: number) {
@@ -85,20 +85,20 @@
 		//console.log(questions);
 	}
 
-  function toggleLeaderboard(){
-    quizComplete=!quizComplete
-  }
+	function toggleLeaderboard() {
+		quizComplete = !quizComplete;
+	}
 </script>
 
 <div class="w-11/12 m-2 p-2 rounded-box h-[80vh] main">
 	{#if $authStore.isLoggedIn}
+		<div class="header">
+			<h1 class="text-2xl font-bold h1">QUIZ CENTER</h1>
+			<button class="red" on:click="{() => {toggleLeaderboard();}}">Toggle Leaderboard</button>
+		</div>
+		<hr>
+
 		{#if !quizComplete}
-			<div class="header">
-        <h1 class="text-2xl h1">Quiz Center</h1>
-        <button class="red" on:click="{()=>{toggleLeaderboard()}}">Toggle Leaderboard</button>
-      </div>
-      
-      
 			<div>
 				{#each questions as q, questionIndex}
 					<div class="mt-7 rounded-md bg-base-300 p-6 border-b-accent">
@@ -106,14 +106,12 @@
 							<div class="questionIndex">
 								{questionIndex + 1}
 							</div>
-							<p>{q.question}</p>
+							<p class="question">{q.question}</p>
 						</div>
+						<!-- Displays each individual answer/option -->
 						<ul>
 							{#each q.options as option, answerIndex}
-								<li
-									on:click="{() => selectAnswer(questionIndex, answerIndex)}"
-									class:selected="{q.selectedOption == answerIndex}"
-								>
+								<li on:click="{() => selectAnswer(questionIndex, answerIndex)}" class:selected="{q.selectedOption == answerIndex}">
 									{option}
 								</li>
 							{/each}
@@ -135,67 +133,69 @@
 	{/if}
 
 	{#if quizComplete}
-  <div class="header">
-        <h1 class="text-2xl h1">Quiz Center</h1>
-        <button class="red" on:click="{()=>{toggleLeaderboard()}}">Toggle Leaderboard</button>
-      </div>
-  <div class="auto-page">
-    <div class="text-2xl">
-      Current score : {score}
-    </div>
+		<div class="auto-page">
+			<div class="text-2xl">
+				<span class="font-semibold">Current Score</span>: {score}
+			</div>
 
-		<table class="table table-xl bg-base-300 container place-self-center mx-auto mt-4 mb-4">
-			<thead>
-				<tr class="text-2xl">
-					<th class="">Student Name</th>
-          <th class="">Score</th>
-				</tr>
-			</thead>
-			<tbody>
-				{#each leaderBoardData as data}
-					<tr class="hover:bg-base-200">
-						<td contenteditable="false" class="text-xl user-name">
-              <img src="{data.user_photo}" class="user-photo">
-              {data.user_name}
-            </td>
-						<td contenteditable="false"> <span class="text-xl"> {data.score} </span>/ 10</td>
+			<table class="table table-xl bg-base-300 container place-self-center mx-auto mt-4 mb-4">
+				<thead>
+					<tr class="text-2xl">
+						<th>Student Name</th>
+						<th>Score</th>
 					</tr>
-				{/each}
-			</tbody>
-		</table>
-    </div>
+				</thead>
+				<tbody>
+					{#each leaderBoardData as data}
+						<tr class="hover:bg-base-200">
+							<td contenteditable="false" class="text-xl user-name">
+								<img src="{data.user_photo}" class="user-photo" />
+								{data.user_name}
+							</td>
+							<td contenteditable="false"> <span class="text-xl"> {data.score} </span>/ 10</td>
+						</tr>
+					{/each}
+				</tbody>
+			</table>
+		</div>
 	{/if}
-  </div>
+</div>
 
 <style>
 	.h1 {
 		text-align: left;
-		margin-top: 2rem;
+		/* margin-top: 2rem; */
 		font-size: 1.5rem;
 	}
 	.main {
-		height:calc(100% + 5rem) ;
+		height: calc(100% + 5rem);
 		flex-direction: row;
 		width: 85%;
 		margin-inline: auto;
 	}
 
-  .user-photo{
-    width: 40px;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-  }
+	.main ul li:hover {
+		background-color: rgba(255, 0, 0, 0.2);
+		transition-duration: 0.1s;
+	}
 
-  .header{
-    display: flex;
-    justify-content: space-between;
-  }
+	.user-photo {
+		width: 40px;
+		aspect-ratio: 1/1;
+		border-radius: 50%;
+	}
 
-  .user-name{
-    display: flex;
-    gap:1rem;
-    align-items: center;
-  }
+	.header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.user-name {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+	}
 
 	section {
 		margin-top: 20px;
@@ -215,17 +215,15 @@
 		margin-bottom: 1rem;
 	}
 
-  .submit{
-    margin-top: 2rem;
-
-  }
+	.submit {
+		margin-top: 2rem;
+	}
 
 	.questionIndex {
 		width: 30px;
 		height: 30px;
 		background-color: red;
 		display: flex;
-		align-items: center;
 		justify-content: center;
 		border-radius: 50%;
 		font-weight: 600;
@@ -237,10 +235,10 @@
 		padding: 0;
 	}
 
-  .auto-page{
-    min-height: 100vh;
-    height: min-content;
-  }
+	.auto-page {
+		min-height: 100vh;
+		height: min-content;
+	}
 
 	li {
 		margin-bottom: 10px;
@@ -251,14 +249,15 @@
 	}
 
 	.selected {
-		background-color: rgba(255, 0, 0,0.2);
+		background-color: rgba(255, 0, 0, 0.2);
 		border: red solid 1px;
 		color: white;
-		font-size: 1.15rem;
+		transition: 0.1s ease-in-out;
+		/* font-size: 1.15rem; */
 	}
 
 	button {
-		margin-top: 10px;
+		/* margin-top: 10px; */
 		padding: 10px;
 		background-color: #2ecc71;
 		color: white;
@@ -272,7 +271,20 @@
 		cursor: not-allowed;
 	}
 
-  .red{
-    background-color: red;
-  }
+	hr {
+		border: none;
+		height: 2px;
+		background-color:red;
+		margin: 12px 0px 12px 0px;
+	}
+
+	/* For the buttons */
+	.red {
+		background-color: red;
+	}
+
+	.red:hover {
+		background-color: rgba(255, 0, 0, 0.6);
+		transition: 0.2s ease-in-out;
+	}
 </style>
