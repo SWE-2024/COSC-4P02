@@ -1,6 +1,6 @@
 <script lang="ts">
-import AddItemButton from './AddItemButton.svelte';
-import ArrowButton from './ArrowButton.svelte';
+	import AddItemButton from './AddItemButton.svelte';
+	import ArrowButton from './ArrowButton.svelte';
 	import SlidesIcon from './SlidesIcon.svelte';
 	import VideoIcon from './VideoIcon.svelte';
 
@@ -143,7 +143,7 @@ import ArrowButton from './ArrowButton.svelte';
 			{/if}
 			<div class="divider divider-vertical my-0"></div>
 		{/each}
-		<AddItemButton bind:moduleLength ={modules.length} />
+		<AddItemButton bind:moduleLength="{modules.length}" />
 		<div class="divider divider-vertical my-0"></div>
 	</div>
 </div>
@@ -152,23 +152,23 @@ import ArrowButton from './ArrowButton.svelte';
 	.fill-height {
 		height: 100%;
 	}
-	/* width */
+
+	/* Scrollbar */
+
 	::-webkit-scrollbar {
 		width: 5px;
+		height: 5px;
 	}
 
-	/* Track */
 	::-webkit-scrollbar-track {
 		border-radius: 5px;
 	}
 
-	/* Handle */
 	::-webkit-scrollbar-thumb {
 		background: lightsteelblue;
 		border-radius: 10px;
 	}
 
-	/* Handle on hover */
 	::-webkit-scrollbar-thumb:hover {
 		background: lightsteelblue;
 	}

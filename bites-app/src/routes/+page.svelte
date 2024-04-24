@@ -15,7 +15,11 @@
 <div class="container {$themeStore.isLight ? 'container-light' : 'container-dark'}">
 	<div class="flex items-center justify-center">
 		<div class="logo-container">
-			<img src="src/assets/logo-sm.png" alt="Logo" class="logo w-32 h-auto transition-transform hover:scale-105" />
+			<img
+				src="src/assets/logo-sm.png"
+				alt="Logo"
+				class="logo w-32 h-auto transition-transform hover:scale-105"
+			/>
 		</div>
 	</div>
 
@@ -47,18 +51,22 @@
 	<h1 class="text-3xl font-semibold text-center my-5">Outline of Content</h1>
 
 	<div class="content flex justify-between w-full p-5">
-		<img src="{moduleGif}" alt="Fishbowl" class="w-2/5 h-auto p-4 transition-transform hover:scale-105" />
+		<img
+			src="{moduleGif}"
+			alt="Fishbowl"
+			class="w-2/5 h-auto p-4 transition-transform hover:scale-105"
+		/>
 		<div class="flex-1 text-center">
-      <p class="text-lg leading-relaxed">
-        i. Software Processes <br /><br />
-        ii. Requirements Engineering <br /><br />
-        iii. Systems Modeling <br /><br />
-        iv. Software Architectural Design <br /><br />
-        v. Implementation Methods <br /><br />
-        vi. Software Testing <br /><br />
-        vii. Software Evolution
-      </p>
-    </div>
+			<p class="text-lg leading-relaxed">
+				i. Software Processes <br /><br />
+				ii. Requirements Engineering <br /><br />
+				iii. Systems Modeling <br /><br />
+				iv. Software Architectural Design <br /><br />
+				v. Implementation Methods <br /><br />
+				vi. Software Testing <br /><br />
+				vii. Software Evolution
+			</p>
+		</div>
 	</div>
 	<!-- Button - Should bring you to the modules or something -->
 	<button class="btn btn-primary m-6" on:click="{onClickHandler}">Go to Modules</button>
