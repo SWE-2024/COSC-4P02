@@ -5,7 +5,7 @@
 	// values
 	let libraryImg = 'https://live.staticflickr.com/3494/4078029168_df7d060636_z.jpg';
 	let computerCommonsImg = 'https://brocku.ca/brock-news/wp-content/uploads/2020/09/image001.jpg';
-	let moduleGif = '../../../src/assets/module.gif';
+	let moduleGif = 'https://firebasestorage.googleapis.com/v0/b/bites-login.appspot.com/o/module.gif?alt=media&token=9a90ad18-193d-4285-a648-66ff6d35a071';
 
 	const onClickHandler = () => {
 		goto('/modules');
