@@ -23,12 +23,12 @@
 		</div>
 	</div>
 
-	<h1 class="text-3xl font-semibold text-center my-5">
+	<h1 class="text-xl sm:text-xl md:text-2xl lg:text-4xl font-semibold text-center my-2 sm:my-3 md:my-4 lg:my-5" >
 		Brock Interactive Training for Engineering Students
 	</h1>
 
 	<div class="content flex justify-between w-full p-5">
-		<p>
+		<p class="text-base md:text-base lg:text-lg">
 			The field of software engineering has developed greatly in recent decades, and as such there
 			is a growing need for supporting tools to assist students and educators in training new
 			software engineers. User-friendly applications improve the process of education are a constant
@@ -43,18 +43,19 @@
 			other related courses, enhancing student understanding and performance.
 		</p>
 
-		<img src="{libraryImg}" alt="Library" />
+		<img class="show-only-on-desktop w-1/2" src="{libraryImg}" alt="Library" />
 	</div>
 </div>
 
 <div class="container {$themeStore.isLight ? 'container-light' : 'container-dark'}">
-	<h1 class="text-3xl font-semibold text-center my-5">Outline of Content</h1>
-
-	<div class="content flex justify-between w-full p-5">
+	<h1 class="text-xl sm:text-xl md:text-2xl lg:text-4xl font-semibold text-center my-2 sm:my-3 md:my-4 lg:my-5" >
+		Outline of Content
+	</h1>
+	<div class="content flex justify-between w-full p-5 flex-col md:flex-row">
 		<img
 			src="{moduleGif}"
 			alt="Fishbowl"
-			class="w-2/5 h-auto p-4 transition-transform hover:scale-105"
+			class="w-full md:w-1/2 h-auto p-4 transition-transform hover:scale-105"
 		/>
 		<div class="flex-1 text-center">
 			<p class="text-lg leading-relaxed">
@@ -73,14 +74,6 @@
 </div>
 
 <style>
-	h1 {
-		font-size: 44px;
-	}
-
-	p {
-		font-size: 19px;
-	}
-
 	button {
 		font-size: 16px;
 	}
@@ -117,12 +110,7 @@
 		padding: 16px;
 	}
 
-	.content img {
-		max-width: 40%; /* Ensure image does not exceed container width */
-		height: auto; /* Maintain aspect ratio */
-
-		padding: 16px;
-		border-radius: 10%;
-		transition: 0.2 ease-in-out;
+	.show-only-on-desktop {
+		@apply hidden lg:block;
 	}
 </style>
