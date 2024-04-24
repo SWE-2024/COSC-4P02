@@ -16,7 +16,7 @@
 	<div class="flex items-center justify-center">
 		<div class="logo-container">
 			<img
-				src="src/assets/logo-sm.png"
+				src="https://firebasestorage.googleapis.com/v0/b/bites-login.appspot.com/o/logo-sm.png?alt=media&token=cd6cbb82-3923-4c04-9f4f-a2e8dfcfbb3f"
 				alt="Logo"
 				class="logo w-32 h-auto transition-transform hover:scale-105"
 			/>
