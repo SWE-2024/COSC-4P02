@@ -16,7 +16,7 @@
 	// wait for DOM mount then set authStore
 	if (browser) {
 		onMount(() => {
-			let admin: boolean
+			let admin: boolean;
 			onAuthStateChanged(auth, async (user) => {
 				try {
 					admin = await isAdmin();
@@ -55,6 +55,7 @@
 </html>
 
 <style>
+	/* Background */
 	.background {
 		background-image: url('https://www.ouinfo.ca/assets/files/images/1.jpg');
 		background-size: cover; /* Ensures the image covers the whole background */
@@ -65,7 +66,8 @@
 	.background-gradient-light {
 		background-color: rgba(256, 256, 256, 0.6);
 	}
+
 	.background-gradient-dark {
-		background-color: rgba(0, 0, 0, 0.8);
+		background-color: rgba(0, 0, 0, 0.6);
 	}
 </style>

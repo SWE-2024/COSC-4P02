@@ -7,8 +7,6 @@
 
 	let login_modal_open = false;
 
-	// console.log($authStore.user)
-
 	authStore.subscribe((storedUser) => ({ user: storedUser }));
 
 	const googleLoginHandler = () => {
@@ -37,12 +35,14 @@
 	{#if $authLoading}
 		<div class="flex">
 			<span class="loading loading-lg"></span>
-			<button class="btn btn-ghost text-lg btn-disabled">Loading</button>
+			<button class="btn btn-ghost text-lg btn-disabled">
+				<p class="button-text">Loading</p>
+			</button>
 		</div>
 	{:else if $authStore.isLoggedIn}
 		<button class="btn text-lg btn-ghost" on:click="{logoutHandler}">
 			<img src="{$authStore.user?.photoURL}" alt="" class="w-10 rounded-full" />
-			Log out
+			<p class="button-text">Log out</p>
 		</button>
 	{:else}
 		<button class="btn text-lg btn-ghost" on:click="{toggleLoginModal}"
@@ -60,8 +60,8 @@
 					d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"
 				></path>
 			</svg>
-			Log in</button
-		>
+			<p class="button-text">Log in</p>
+		</button>
 	{/if}
 
 	<dialog class="modal" class:modal-open="{login_modal_open}">
@@ -98,4 +98,7 @@
 <svelte:window on:keydown="{onKeyUp}" />
 
 <style>
+	.button-text {
+		@apply hidden lg:block;
+	}
 </style>

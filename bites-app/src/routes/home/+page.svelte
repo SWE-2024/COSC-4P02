@@ -15,7 +15,11 @@
 <div class="container {$themeStore.isLight ? 'container-light' : 'container-dark'}">
 	<div class="flex items-center justify-center">
 		<div class="logo-container">
-			<img src="src/assets/logo-sm.png" alt="Logo" class="logo w-32 h-auto transition-transform hover:scale-105" />
+			<img
+				src="src/assets/logo-sm.png"
+				alt="Logo"
+				class="logo w-32 h-auto transition-transform hover:scale-105"
+			/>
 		</div>
 	</div>
 
@@ -39,7 +43,7 @@
 			other related courses, enhancing student understanding and performance.
 		</p>
 
-		<img src="{libraryImg}" alt="Library" />
+		<img class="show-only-on-desktop w-1/2" src="{libraryImg}" alt="Library" />
 	</div>
 </div>
 
@@ -47,11 +51,14 @@
 	<h1 class="text-xl sm:text-xl md:text-2xl lg:text-4xl font-semibold text-center my-2 sm:my-3 md:my-4 lg:my-5" >
 		Outline of Content
 	</h1>
-
-	<div class="content flex justify-between w-full p-5">
-		<img src="{moduleGif}" alt="Fishbowl" class="w-full h-auto p-4 transition-transform hover:scale-105" />
+	<div class="content flex justify-between w-full p-5 flex-col md:flex-row">
+		<img
+			src="{moduleGif}"
+			alt="Fishbowl"
+			class="w-full md:w-1/2 h-auto p-4 transition-transform hover:scale-105"
+		/>
 		<div class="flex-1 text-center">
-			<p class="text-base md:text-base lg:text-lg leading-relaxed">
+			<p class="text-lg leading-relaxed">
 				i. Software Processes <br /><br />
 				ii. Requirements Engineering <br /><br />
 				iii. Systems Modeling <br /><br />
@@ -103,11 +110,7 @@
 		padding: 16px;
 	}
 
-	.content img {
-		max-width: 40%; /* Ensure image does not exceed container width */
-		height: auto; /* Maintain aspect ratio */
-
-		padding: 16px;
-		transition: 0.2 ease-in-out;
+	.show-only-on-desktop {
+		@apply hidden lg:block;
 	}
 </style>
