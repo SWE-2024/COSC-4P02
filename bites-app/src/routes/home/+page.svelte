@@ -19,7 +19,7 @@
 		</div>
 	</div>
 
-	<h1 class="text-xl sm:text-xl md:text-2xl lg:text-4xl font-semibold text-center my-2 sm:my-3 md:my-4 lg:my-5">
+	<h1 class="text-xl sm:text-xl md:text-2xl lg:text-4xl font-semibold text-center my-2 sm:my-3 md:my-4 lg:my-5" >
 		Brock Interactive Training for Engineering Students
 	</h1>
 
@@ -44,14 +44,12 @@
 </div>
 
 <div class="container {$themeStore.isLight ? 'container-light' : 'container-dark'}">
-	<h1 class="text-xl sm:text-xl md:text-2xl lg:text-4xl font-semibold text-center my-2 sm:my-3 md:my-4 lg:my-5">Outline of Content</h1>
+	<h1 class="text-xl sm:text-xl md:text-2xl lg:text-4xl font-semibold text-center my-2 sm:my-3 md:my-4 lg:my-5" >
+		Outline of Content
+	</h1>
 
 	<div class="content flex justify-between w-full p-5">
-		<img
-			src="{moduleGif}"
-			alt="Fishbowl"
-			class="w-2/5 h-auto p-4 transition-transform hover:scale-105"
-		/>
+		<img src="{moduleGif}" alt="Fishbowl" class="w-full h-auto p-4 transition-transform hover:scale-105" />
 		<div class="flex-1 text-center">
 			<p class="text-base md:text-base lg:text-lg leading-relaxed">
 				i. Software Processes <br /><br />
@@ -69,7 +67,6 @@
 </div>
 
 <style>
-
 	button {
 		font-size: 16px;
 	}
