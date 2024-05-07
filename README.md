@@ -3,12 +3,8 @@
 ## Website Link
 <a href="https://bitesapp.org/">
   BITES 
-  
-## Presentation
 
-The presentation for this project will be online.
-
-## Problem
+## Problem Statement
 
 The field of software engineering has developed greatly in recent decades, and as such there is a growing need for supporting tools to assist students and educators in training new software engineers. User-friendly applications improve the process of education are a constant demand. Our group has set out to develop a new web application tailored to the needs of aspiring software engineers.
 
@@ -17,6 +13,10 @@ In traditional educational settings, software engineering courses often face cha
 
 ## Objectives
 The objective of this project is to develop an Interactive Software Training Engineering System (BITES), a comprehensive platform that addresses the shortcomings of current educational methods. BITES aims to create an immersive and adaptive learning environment for software engineering and other related courses, enhancing student understanding and performance.
+  
+## Presentation
+
+The presentation for this project will be online.
 
 ## Our Team
 
