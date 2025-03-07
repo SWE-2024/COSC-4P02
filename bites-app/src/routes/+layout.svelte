@@ -2,16 +2,16 @@
 	// import './styles.css';
 	import '../app.css';
 	import 'tailwindcss/tailwind.css';
-	import Navbar from '../components/Navbar.svelte';
-	import Footer from '../components/Footer.svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 	import { onAuthStateChanged } from 'firebase/auth';
 	import { auth } from '$lib/firebase/firebase.client';
 	import { authLoading, authStore, isAdmin } from '$lib/stores/authStore';
-	import DarkModeToggle from '../components/DarkModeToggle.svelte';
+	import DarkModeToggle from '$lib/components/DarkModeToggle.svelte';
 	import { themeStore } from '$lib/stores/themeStore';
-	import AccessibilityMenu from '../components/AccessibilityMenu/AccessibilityMenu.svelte';
+	import AccessibilityMenu from '$lib/components/AccessibilityMenu/AccessibilityMenu.svelte';
 
 	// wait for DOM mount then set authStore
 	if (browser) {

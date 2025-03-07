@@ -4,7 +4,7 @@
 	import NewModuleForm from './NewModuleForm.svelte';
 	import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 	import { addDoc, collection } from 'firebase/firestore';
-	import * as fire from '../../lib/firebase/firebase.client';
+	import * as fire from '$lib/firebase/firebase.client';
 
 	const storage = getStorage();
 	const db = fire.db;
