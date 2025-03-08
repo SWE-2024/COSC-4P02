@@ -45,8 +45,8 @@
 					<slot />
 				</main>
 				<div class="join join-vertical sticky float-right bottom-4 right-4 my-4">
-					<DarkModeToggle classname="btn btn-primary btn-circle btn-md" />
-					<AccessibilityMenu />
+					<DarkModeToggle classname="circle-button" />
+					<AccessibilityMenu classname="circle-button" />
 				</div>
 			</div>
 			<Footer />

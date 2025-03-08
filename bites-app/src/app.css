@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities
+@tailwind utilities;
+
+.circle-button {
+	@apply btn btn-primary btn-circle my-4 sticky bottom-4 left-4 float-left;
+}
+/* btn btn-primary btn-circle my-4 sticky bottom-4 left-4 float-left */
