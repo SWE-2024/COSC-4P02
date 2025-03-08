@@ -5,4 +5,100 @@
 .circle-button {
 	@apply btn btn-primary btn-circle my-4 sticky bottom-4 left-4 float-left;
 }
-/* btn btn-primary btn-circle my-4 sticky bottom-4 left-4 float-left */
+
+.background {
+	background-image: url('https://www.ouinfo.ca/assets/files/images/1.jpg');
+	background-size: cover; /* Ensures the image covers the whole background */
+	background-position: center; /* Centers the image */
+	background-attachment: fixed;
+}
+
+.background-gradient-light {
+	background-color: rgba(256, 256, 256, 0.6);
+}
+
+.background-gradient-dark {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+button {
+	font-size: 16px;
+}
+
+.container-light {
+	background-color: rgba(250, 250, 250, 0.55);
+}
+
+.container-dark {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+	border-radius: 16px;
+	border-bottom: 1px solid red;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+	padding: 16px;
+	margin: 16px auto;
+	/* text-align: center; */
+}
+
+.content {
+	display: flex;
+	align-items: center; /* Vertical alignment; Helps make the images stay to their natural aspect ratio */
+	justify-content: center;
+}
+
+.content p {
+	flex: 1;
+	padding: 16px;
+}
+
+.show-only-on-desktop {
+	@apply hidden lg:block;
+}
+
+/* on /home */
+
+button {
+	font-size: 16px;
+}
+
+.container-light {
+	background-color: rgba(250, 250, 250, 0.55);
+}
+
+.container-dark {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+	border-radius: 16px;
+	border-bottom: 1px solid red;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+	padding: 16px;
+	margin: 16px auto;
+	/* text-align: center; */
+}
+
+.content {
+	display: flex;
+	align-items: center; /* Vertical alignment; Helps make the images stay to their natural aspect ratio */
+	justify-content: center;
+}
+
+.content p {
+	flex: 1;
+	padding: 16px;
+}
+
+.show-only-on-desktop {
+	@apply hidden lg:block;
+}

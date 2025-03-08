@@ -53,21 +53,3 @@
 		</div>
 	</div>
 </html>
-
-<style>
-	/* Background */
-	.background {
-		background-image: url('https://www.ouinfo.ca/assets/files/images/1.jpg');
-		background-size: cover; /* Ensures the image covers the whole background */
-		background-position: center; /* Centers the image */
-		background-attachment: fixed;
-	}
-
-	.background-gradient-light {
-		background-color: rgba(256, 256, 256, 0.6);
-	}
-
-	.background-gradient-dark {
-		background-color: rgba(0, 0, 0, 0.6);
-	}
-</style>
