@@ -1,5 +1,5 @@
 <script lang="ts">
-	import LibraryTable from '$lib/components/LibraryTable.svelte';
+	import LibraryTable from '../../components/LibraryTable.svelte';
 	export let data: any;
 	let library = data.props;
 	let columns = ['Name', 'Description', 'Site'];

@@ -1,11 +1,6 @@
 <script lang="ts">
 	import AccessMenuModal from './AccessMenuModal.svelte';
 
-	/**
-	 * @var classname CSS class for the toggle button.
-	 */
-	export let classname: string = '';
-
 	let accessibilityMenuOpen = false;
 
 	/**
@@ -28,7 +23,7 @@
 	};
 </script>
 
-<button class="{classname}" on:click="{accessibilityMenuHandler}">
+<button class="circle-button" on:click="{accessibilityMenuHandler}">
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		fill="none"
@@ -48,3 +43,9 @@
 <AccessMenuModal {accessibilityMenuOpen} {accessibilityMenuHandler} />
 
 <svelte:window on:keydown="{onKeyUp}" />
+
+<style>
+	.circle-button {
+		@apply btn btn-primary btn-circle my-4 sticky bottom-4 left-4 float-left;
+	}
+</style>

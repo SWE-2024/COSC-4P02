@@ -32,14 +32,14 @@
 </script>
 
 <div class="flex flex-col w-full">
-	<h3 class="h-2">Module Name</h3>
+	<h3 class="subheading">Module Name</h3>
 	<label class="url-input self-center">
 		<input type="text" id="modulename" bind:value="{data.module_name}" />
 	</label>
 	<p class="error-font">{error.moduleNameInput}</p>
 	<br />
 	<br />
-	<h3 class="h-2">Module description</h3>
+	<h3 class="subheading">Module description</h3>
 	<label class="url-input self-center">
 		<input type="text" id="moduledescription" bind:value="{data.module_description}" />
 	</label>
@@ -47,7 +47,7 @@
 
 	<div class="divider"></div>
 
-	<h3 class="h-2">Add a Slideshow</h3>
+	<h3 class="subheading">Add a Slideshow</h3>
 	<input
 		class="slide-input self-center"
 		type="file"
@@ -62,7 +62,7 @@
 
 	<div class="divider"></div>
 
-	<h3 class="h-2">Add a Video</h3>
+	<h3 class="subheading">Add a Video</h3>
 	<label class="url-input self-center" aria-disabled="{!videourlEnabled}">
 		URL
 		<input
@@ -75,3 +75,21 @@
 	</label>
 	<p class="error-font">{error.videoInput}</p>
 </div>
+
+<style>
+	.url-input {
+		@apply input input-bordered flex items-center gap-2 w-full max-w-md;
+	}
+	.slide-input {
+		@apply file-input file-input-bordered w-full max-w-md;
+	}
+	.subheading {
+		@apply text-xl self-center mb-4;
+	}
+	.input-toggle {
+		@apply toggle toggle-primary lg:toggle-lg;
+	}
+	.error-font {
+		@apply text-sm italic;
+	}
+</style>
