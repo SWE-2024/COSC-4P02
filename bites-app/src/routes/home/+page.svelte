@@ -76,8 +76,9 @@
 				</p>
 			</div>
 		</div>
-		<!-- Button - Should bring you to the modules or something -->
-		<button class="btn btn-primary m-6" on:click="{onClickHandler}">Go to Modules</button>
+		<div class="text-center">
+			<button class="btn btn-primary m-2 content-center" on:click="{onClickHandler}">Go to Modules</button>
+		</div>
 	</div>
 	<div class="divider"></div>
 </div>

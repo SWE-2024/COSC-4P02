@@ -8,8 +8,8 @@
 
 .background {
 	background-image: url('https://www.ouinfo.ca/assets/files/images/1.jpg');
-	background-size: cover; /* Ensures the image covers the whole background */
-	background-position: center; /* Centers the image */
+	background-size: cover;
+	background-position: center;
 	background-attachment: fixed;
 }
 
