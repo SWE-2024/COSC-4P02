@@ -230,11 +230,6 @@
 		font-size: 1.25rem;
 	}
 
-	/* ul {
-		list-style-type: none;
-		padding: 0;
-	} */
-
 	.selected {
 		background-color: rgba(255, 0, 0, 0.2);
 		border: solid 1px;

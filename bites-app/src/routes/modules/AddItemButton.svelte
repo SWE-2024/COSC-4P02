@@ -4,7 +4,7 @@
 	import NewModuleForm from './NewModuleForm.svelte';
 	import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 	import { addDoc, collection } from 'firebase/firestore';
-	import * as fire from '../../lib/firebase/firebase.client';
+	import * as fire from '$lib/firebase/firebase.client';
 
 	const storage = getStorage();
 	const db = fire.db;
@@ -96,7 +96,7 @@
 		if (error.fileInput.length == 0 && error.videoInput.length == 0) {
 			// We have no errors so we can add the stuff to firebase here.
 			// Vinit your thing here.
-			console.log(data);
+			// console.log(data);
 
 			let module = {
 				index: moduleLength,
