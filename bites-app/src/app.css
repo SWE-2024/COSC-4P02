@@ -21,10 +21,6 @@
 	background-color: rgba(0, 0, 0, 0.6);
 }
 
-button {
-	font-size: 16px;
-}
-
 .container-light {
 	background-color: rgba(250, 250, 250, 0.55);
 }
@@ -33,70 +29,26 @@ button {
 	background-color: rgba(0, 0, 0, 0.5);
 }
 
-.container {
-	border-radius: 16px;
-	border-bottom: 1px solid red;
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 80%;
-	padding: 16px;
-	margin: 16px auto;
-	/* text-align: center; */
+/* Text */
+.error-font {
+	@apply text-sm italic;
 }
 
-.content {
-	display: flex;
-	align-items: center; /* Vertical alignment; Helps make the images stay to their natural aspect ratio */
-	justify-content: center;
+.h-2 {
+	@apply text-xl self-center my-8;
 }
 
-.content p {
-	flex: 1;
-	padding: 16px;
+/* Forms */
+.url-input {
+	@apply input input-bordered flex items-center gap-2 w-full max-w-md;
 }
 
-.show-only-on-desktop {
-	@apply hidden lg:block;
+.input-toggle {
+	@apply toggle toggle-primary lg:toggle-lg;
 }
 
-/* on /home */
-
-button {
-	font-size: 16px;
-}
-
-.container-light {
-	background-color: rgba(250, 250, 250, 0.55);
-}
-
-.container-dark {
-	background-color: rgba(0, 0, 0, 0.5);
-}
-
-.container {
-	border-radius: 16px;
-	border-bottom: 1px solid red;
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 80%;
-	padding: 16px;
-	margin: 16px auto;
-	/* text-align: center; */
-}
-
-.content {
-	display: flex;
-	align-items: center; /* Vertical alignment; Helps make the images stay to their natural aspect ratio */
-	justify-content: center;
-}
-
-.content p {
-	flex: 1;
-	padding: 16px;
+.slide-input {
+	@apply file-input file-input-bordered w-full max-w-md;
 }
 
 .show-only-on-desktop {

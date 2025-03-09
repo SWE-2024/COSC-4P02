@@ -96,7 +96,7 @@
 		if (error.fileInput.length == 0 && error.videoInput.length == 0) {
 			// We have no errors so we can add the stuff to firebase here.
 			// Vinit your thing here.
-			console.log(data);
+			// console.log(data);
 
 			let module = {
 				index: moduleLength,
